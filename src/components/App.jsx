@@ -1,11 +1,15 @@
-import styled from 'styled-components'
-
-const StyledHeading = styled.h1`
-    color: blue;
-`
+// import styled from 'styled-components'
+import Header from './Header'
+import Footer from './Footer'
 
 const App = () => {
-    return <StyledHeading>Our First Test</StyledHeading>
+    return (
+        <>
+            <Header />
+            <main></main>
+            <Footer />
+        </>
+    )
 }
 
 export default App
