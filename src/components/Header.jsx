@@ -37,7 +37,7 @@ const Header = () => {
     return (
         <header role='header'>
             <Nav>
-                <NavLogo>
+                <NavLogo to='/'>
                     <img src={cartIcon} alt='cart icon' />
                     <p>CartMart</p>
                 </NavLogo>
