@@ -1,13 +1,13 @@
 // import styled from 'styled-components'
 import Header from './Header'
-import MainContent from './MainContent'
+import PageContent from './PageContent'
 import Footer from './Footer'
 
 const App = () => {
     return (
         <>
             <Header />
-            <MainContent />
+            <PageContent />
             <Footer />
         </>
     )

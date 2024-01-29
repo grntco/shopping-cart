@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header renders > renders header element 1`] = `
+<header
+  data-testid="header"
+>
+  <nav
+    class="sc-beySPh ejyIdm"
+  >
+    <a
+      class="sc-dmyCSP sc-hLQSwg fgQcUC kROMjo"
+      href="/"
+    >
+      <img
+        alt="cart icon"
+        src="/src/assets/icons/shopping-cart.svg"
+      />
+      <p>
+        CartMart
+      </p>
+    </a>
+    <ul
+      class="sc-guDLey FlvQP"
+    >
+      <li>
+        <a
+          class="sc-dmyCSP fgQcUC"
+          href="/products"
+        >
+          Products
+        </a>
+      </li>
+      <li>
+        <a
+          class="sc-dmyCSP fgQcUC"
+          href="/cart"
+        >
+          <img
+            alt="cart icon"
+            src="/src/assets/icons/shopping-cart.svg"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;

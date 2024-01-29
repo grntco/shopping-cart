@@ -7,11 +7,11 @@ const Router = () => {
         {
             path: '/',
             element: <App />,
-            errorElement: <NotFound />
+            errorElement: <NotFound />,
         },
         {
             path: '/:name',
-            element: <App />
+            element: <App />,
         },
     ])
 

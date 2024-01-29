@@ -35,7 +35,7 @@ const NavLogo = styled(NavLink)`
 
 const Header = () => {
     return (
-        <header role='header'>
+        <header data-testid='header'>
             <Nav>
                 <NavLogo to='/'>
                     <img src={cartIcon} alt='cart icon' />
@@ -46,7 +46,7 @@ const Header = () => {
                         <NavLink to='/products'>Products</NavLink>
                     </li>
                     <li>
-                        <NavLink>
+                        <NavLink to='/cart'>
                             <img src={cartIcon} alt='cart icon' />
                         </NavLink>
                     </li>
