@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import NotFound from './NotFound'
-import ProductsPage from './ProductsPage'
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -11,8 +10,8 @@ const Router = () => {
             errorElement: <NotFound />
         },
         {
-            path: '/products',
-            element: <ProductsPage />
+            path: '/:name',
+            element: <App />
         },
     ])
 
