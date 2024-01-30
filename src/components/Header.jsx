@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import cartIcon from '../assets/icons/shopping-cart.svg'
+import Logo from './Logo'
 
 const Nav = styled.nav`
     display: flex;
@@ -26,21 +27,11 @@ const NavLink = styled(Link)`
         opacity: 0.6;
     }
 `
-const NavLogo = styled(NavLink)`
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 2rem;
-`
-
 const Header = () => {
     return (
         <header data-testid='header'>
             <Nav>
-                <NavLogo to='/'>
-                    <img src={cartIcon} alt='cart icon' />
-                    <p>CartMart</p>
-                </NavLogo>
+                <Logo />
                 <NavLinks>
                     <li>
                         <NavLink to='/products'>Products</NavLink>

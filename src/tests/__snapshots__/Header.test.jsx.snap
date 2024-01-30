@@ -9,6 +9,7 @@ exports[`Header renders > renders header element 1`] = `
   >
     <a
       class="sc-dmyCSP sc-hLQSwg fgQcUC kROMjo"
+      data-testid="nav-logo"
       href="/"
     >
       <img
