@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const StyledFooter = styled.footer`
     display: flex;
     justify-content: space-between;
-    padding: 48px;
+    padding: 48px 96px;
     background-color: black;
 `
 

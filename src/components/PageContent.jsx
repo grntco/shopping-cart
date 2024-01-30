@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom'
-import ProductsPage from './pages/ProductsPage'
-import CartPage from './pages/CartPage'
+import ProductsPage from './pages/products/ProductsPage'
+import CartPage from './pages/cart/CartPage'
 import styled from 'styled-components'
 
 
 const StyledMain = styled.main`
-    min-height: 90vh;
+    /* min-height: 90vh; */
+    flex-grow: 1;
 `
 
 const PageContent = () => {
