@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom"
-import useProducts from "../../../hooks/useProducts"
+// import { Link } from "react-router-dom"
+import useProducts from '../../../hooks/useProducts'
+// import styled from 'styled-components'
+import ProductsGrid from './ProductsGrid'
+
 
 const ProductsPage = () => {
     const { products, error, loading } = useProducts()
@@ -10,8 +13,12 @@ const ProductsPage = () => {
     console.log(products)
     return (
         <>
-            <h1>Products Page</h1>
-            <Link to='/'>Go home?</Link>
+            <section>
+              Filter Container buttons buttons buttons
+            </section>
+            <ProductsGrid products={products}>
+
+            </ProductsGrid>
         </>
     )
 }

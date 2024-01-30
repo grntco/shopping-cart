@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import cartIcon from '../assets/icons/shopping-cart.svg'
-import Logo from './Logo'
+import Logo from './reusables/Logo'
 
 const Nav = styled.nav`
     display: flex;
@@ -19,13 +19,7 @@ const NavLinks = styled.ul`
 `
 
 const NavLink = styled(Link)`
-    text-decoration: none;
-    color: black;
     font-size: 1.2rem;
-
-    &:hover {
-        opacity: 0.6;
-    }
 `
 const Header = () => {
     return (

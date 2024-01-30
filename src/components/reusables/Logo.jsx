@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import cartIcon from '../assets/icons/shopping-cart.svg'
+import cartIcon from '../../assets/icons/shopping-cart.svg'
 
 const StyledLogoLink = styled(Link)`
     text-decoration: none;

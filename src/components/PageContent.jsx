@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 
 const StyledMain = styled.main`
-    /* min-height: 90vh; */
     flex-grow: 1;
 `
 

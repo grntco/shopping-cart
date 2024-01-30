@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Logo from './Logo'
+import Logo from './reusables/Logo'
 import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
@@ -21,7 +21,6 @@ const FooterLinkItem = styled.li`
 
 const FooterLink = styled(Link)`
     color: white;
-    text-decoration: none;
 `
 
 const Footer = () => {
