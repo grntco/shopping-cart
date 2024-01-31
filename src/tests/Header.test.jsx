@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { waitFor, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Header from '../components/Header'
 import Router from '../components/Router'
 import userEvent from '@testing-library/user-event'
@@ -25,7 +25,7 @@ describe('Header', () => {
             </Router>,
         )
 
-        const productsLink = screen.getByRole('link', { name: 'Products' } )
+        const productsLink = screen.getByRole('link', { name: 'Products' })
         expect(productsLink.href).toContain('/products')
 
         await user.click(productsLink)
@@ -45,9 +45,11 @@ describe('Header', () => {
 
         expect(cartLink.href).toContain('/cart')
 
-        await user.click(cartLink);
+        await user.click(cartLink)
 
-        expect(screen.getByRole('heading', { name: 'Your Cart' })).toBeInTheDocument()
+        expect(
+            screen.getByRole('heading', { name: 'Your Cart' }),
+        ).toBeInTheDocument()
         expect(window.location.pathname).toBe('/cart')
     })
 })
