@@ -16,7 +16,6 @@ const StyledLogo = styled(Link)`
         font-size: 1.6rem;
         font-weight: 700;
         letter-spacing: 0.025rem;
-        /* color: ${({ footer }) => ((footer && `white`) || `black`)}; */
     }
 `
 
@@ -24,7 +23,7 @@ const Logo = () => {
     return (
         <StyledLogo to='/'>
             <Icon src={cartIcon} alt='cart icon' />
-            <p>CartMart</p>
+            <p>EverCart</p>
         </StyledLogo>
     )
 }

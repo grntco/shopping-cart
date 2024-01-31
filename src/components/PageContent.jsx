@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom'
+import HomePage from './pages/home/HomePage'
 import ProductsPage from './pages/products/ProductsPage'
 import CartPage from './pages/cart/CartPage'
 import styled from 'styled-components'
@@ -6,6 +7,8 @@ import styled from 'styled-components'
 
 const StyledMain = styled.main`
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 `
 
 const PageContent = () => {
@@ -18,7 +21,7 @@ const PageContent = () => {
             ) : name === 'cart' ? (
                 <CartPage />
             ) : (
-                <h1 data-testid="home-page-title">Home Page</h1>
+                <HomePage />
             )}
         </StyledMain>
     )
