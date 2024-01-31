@@ -14,7 +14,7 @@ const ProductsPage = () => {
     return (
         <>
             <section>
-              Filter Container buttons buttons buttons
+              <h1>All Products</h1>
             </section>
             <ProductsGrid products={products}>
 

@@ -10,7 +10,7 @@ const StyledProductsGrid = styled.section`
 
 const ProductsGrid = ({ products }) => {
     return (
-        <StyledProductsGrid>
+        <StyledProductsGrid data-testid='products-grid'>
             {products.map((product, index) => {
                 return <ProductCard key={index} product={product} />
             })}

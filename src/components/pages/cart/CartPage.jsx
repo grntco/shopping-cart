@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const CartPage = () => {
     return (
         <>
-            <h1>Cart Page!</h1>
+            <h1>Your Cart</h1>
             <Link to='/'>Go home?</Link>
         </>
     )

@@ -1,15 +1,14 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header renders > renders header element 1`] = `
+exports[`Header > renders header element 1`] = `
 <header
   data-testid="header"
 >
   <nav
-    class="sc-beySPh ejyIdm"
+    class="sc-guDLey eHZOjN"
   >
     <a
-      class="sc-dmyCSP sc-hLQSwg fgQcUC kROMjo"
-      data-testid="nav-logo"
+      class="sc-beySPh cnwaRZ"
       href="/"
     >
       <img
@@ -21,11 +20,11 @@ exports[`Header renders > renders header element 1`] = `
       </p>
     </a>
     <ul
-      class="sc-guDLey FlvQP"
+      class="sc-dmyCSP dfkF"
     >
       <li>
         <a
-          class="sc-dmyCSP fgQcUC"
+          class="sc-hLQSwg hIvcwK"
           href="/products"
         >
           Products
@@ -33,7 +32,8 @@ exports[`Header renders > renders header element 1`] = `
       </li>
       <li>
         <a
-          class="sc-dmyCSP fgQcUC"
+          class="sc-hLQSwg hIvcwK"
+          data-testid="header__cart-link"
           href="/cart"
         >
           <img

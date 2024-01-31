@@ -31,7 +31,7 @@ const Header = () => {
                         <NavLink to='/products'>Products</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/cart'>
+                        <NavLink to='/cart' data-testid='header__cart-link'>
                             <img src={cartIcon} alt='cart icon' />
                         </NavLink>
                     </li>
