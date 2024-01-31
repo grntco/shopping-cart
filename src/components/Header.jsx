@@ -39,7 +39,10 @@ const NavLinks = styled.ul`
 `
 
 const NavLink = styled(Link)`
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
 `
 
 export default Header

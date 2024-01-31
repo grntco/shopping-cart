@@ -1,24 +1,31 @@
-import styled from 'styled-components'
+import { styled } from 'styled-components'
 import { Link } from 'react-router-dom'
+import Icon from './Icon'
 import cartIcon from '../../assets/icons/shopping-cart.svg'
 
-const StyledLogoLink = styled(Link)`
+const StyledLogo = styled(Link)`
     display: flex;
     align-items: center;
     gap: 4px;
-`
 
-const LogoText = styled.p`
-    font-size: 1.6rem;
-    font-weight: 700;
+    img {
+        height: 1.6rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 0.025rem;
+        /* color: ${({ footer }) => ((footer && `white`) || `black`)}; */
+    }
 `
 
 const Logo = () => {
     return (
-        <StyledLogoLink to='/'>
-            <img src={cartIcon} alt='cart icon' />
-            <LogoText>CartMart</LogoText>
-        </StyledLogoLink>
+        <StyledLogo to='/'>
+            <Icon src={cartIcon} alt='cart icon' />
+            <p>CartMart</p>
+        </StyledLogo>
     )
 }
 

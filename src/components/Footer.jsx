@@ -26,7 +26,7 @@ const FooterLink = styled(Link)`
 const Footer = () => {
     return (
         <StyledFooter data-testid='footer'>
-            <Logo />
+            <Logo className='footer-logo' />
             <FooterLinks>
                 <FooterLinkItem>
                     <FooterLink>Mens</FooterLink>
