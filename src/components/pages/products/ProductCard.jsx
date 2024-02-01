@@ -4,48 +4,15 @@ import { Link } from 'react-router-dom'
 import starIcon from '../../../assets/icons/star.svg'
 import Icon from '../../reusables/Icon'
 import Button from '../../reusables/Button'
-
-const StyledCard = styled.div`
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-`
-
-const CardImageLink = styled(Link)`
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-    max-width: 336px;
-`
-
-const CardImage = styled.img`
-    width: 100%;
-`
-
-const CardInfoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
-const CardInfo = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
-
-const CardInfoRating = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-`
+import { useState } from 'react'
 
 const ProductCard = ({ product, handleAddToCart }) => {
+    const [quantity, setQuantity] = useState(0)
+
     return (
         <StyledCard>
             <CardImageLink>
-                <CardImage
+                <img
                     src={product.image}
                     alt={product.title}
                     title={product.title}
@@ -63,9 +30,9 @@ const ProductCard = ({ product, handleAddToCart }) => {
                 </CardInfo>
                 <CardInfo>
                     <div>
-                        <Button $primary>-</Button>
-                        <input type='number' />
-                        <Button $primary>+</Button>
+                        <Button onClick={handleDecrementQuantity}>-</Button>
+                        <Input value={quantity} />
+                        <Button onClick={handleIncrementQuantity}>+</Button>
                     </div>
                     <p>${product.price}</p>
                 </CardInfo>
@@ -79,7 +46,59 @@ const ProductCard = ({ product, handleAddToCart }) => {
             </CardInfoContainer>
         </StyledCard>
     )
+
+    function handleIncrementQuantity() {
+        setQuantity(quantity + 1)
+    }
+
+    function handleDecrementQuantity() {
+        if (quantity > 0) setQuantity(quantity - 1)
+    }
 }
+
+const StyledCard = styled.div`
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+`
+
+const CardImageLink = styled(Link)`
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 336px;
+
+    img {
+        width: 100%;
+    }
+`
+
+const CardInfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+const CardInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+const Input = styled.input`
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+`
+
+const CardInfoRating = styled.div`
+    display: flex;
+    flex-wrap: nowrap;
+`
 
 ProductCard.propTypes = {
     product: PropTypes.object.isRequired,
