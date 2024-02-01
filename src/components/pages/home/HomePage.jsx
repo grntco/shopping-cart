@@ -7,7 +7,6 @@ const HeroSection = styled.section`
     background-size: cover;
     background-position: top right;
     background-repeat: no-repeat;
-
     flex-grow: 1;
     padding: 48px 96px;
     display: flex;

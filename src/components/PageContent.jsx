@@ -4,11 +4,12 @@ import ProductsPage from './pages/products/ProductsPage'
 import CartPage from './pages/cart/CartPage'
 import styled from 'styled-components'
 
-
 const StyledMain = styled.main`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
 `
 
 const PageContent = () => {
