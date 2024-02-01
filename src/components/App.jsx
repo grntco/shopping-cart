@@ -5,17 +5,19 @@ import Footer from './Footer'
 import { useState } from 'react'
 
 const App = () => {
-    const [cartItems, setCartItems] = useState([])
+    const [cart, setCart] = useState([])
 
     return (
         <>
-            <Header />
-            <PageContent />
+            <Header cart={cart}/>
+            <PageContent handleAddToCart={handleAddToCart}/>
             <Footer />
         </>
     )
 
-
+    function handleAddToCart(newProduct) {
+        setCart([...cart, newProduct])
+    }
 }
 
 export default App

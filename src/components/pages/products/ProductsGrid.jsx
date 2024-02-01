@@ -10,11 +10,17 @@ const StyledProductsGrid = styled.section`
     padding: 48px 96px;
 `
 
-const ProductsGrid = ({ products }) => {
+const ProductsGrid = ({ products, handleAddToCart }) => {
     return (
         <StyledProductsGrid data-testid='products-grid'>
             {products.map((product, index) => {
-                return <ProductCard key={index} product={product} />
+                return (
+                    <ProductCard
+                        key={index}
+                        product={product}
+                        handleAddToCart={handleAddToCart}
+                    />
+                )
             })}
         </StyledProductsGrid>
     )
@@ -22,6 +28,7 @@ const ProductsGrid = ({ products }) => {
 
 ProductsGrid.propTypes = {
     products: PropTypes.array.isRequired,
+    handleAddToCart: PropTypes.func.isRequired,
 }
 
 export default ProductsGrid

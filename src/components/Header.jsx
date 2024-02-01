@@ -2,8 +2,9 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import cartIcon from '../assets/icons/shopping-cart.svg'
 import Logo from './reusables/Logo'
+import PropTypes from 'prop-types'
 
-const Header = () => {
+const Header = ({ cart }) => {
     return (
         <header data-testid='header'>
             <Nav>
@@ -15,9 +16,11 @@ const Header = () => {
                     <li>
                         <NavLink to='/cart' data-testid='header__cart-link'>
                             <img src={cartIcon} alt='cart icon' />
-                            <CartItemsNumber>
-                                <div>5</div>
-                            </CartItemsNumber>
+                            {cart.length > 0 && (
+                                <CartItemsNumber>
+                                    <div>{cart.length}</div>
+                                </CartItemsNumber>
+                            )}
                         </NavLink>
                     </li>
                 </NavLinks>
@@ -69,5 +72,9 @@ const CartItemsNumber = styled.div`
         margin-left: 1px;
     }
 `
+
+Header.propTypes = {
+    cart: PropTypes.object,
+}
 
 export default Header

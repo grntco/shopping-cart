@@ -41,7 +41,7 @@ const CardInfoRating = styled.div`
     flex-wrap: nowrap;
 `
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleAddToCart }) => {
     return (
         <StyledCard>
             <CardImageLink>
@@ -53,21 +53,29 @@ const ProductCard = ({ product }) => {
             </CardImageLink>
             <CardInfoContainer>
                 <CardInfo>
-                    <Link><h4>{product.title}</h4></Link>
+                    <Link>
+                        <h4>{product.title}</h4>
+                    </Link>
                     <CardInfoRating>
-                        <Icon src={starIcon} alt="star icon" />
+                        <Icon src={starIcon} alt='star icon' />
                         <p>{product.rating.rate}</p>
                     </CardInfoRating>
                 </CardInfo>
                 <CardInfo>
                     <div>
                         <Button $primary>-</Button>
-                        <input type='number'  />
+                        <input type='number' />
                         <Button $primary>+</Button>
                     </div>
                     <p>${product.price}</p>
                 </CardInfo>
-                <Button>Add to Cart</Button>
+                <Button
+                    onClick={() => {
+                        handleAddToCart(product)
+                    }}
+                >
+                    Add to Cart
+                </Button>
             </CardInfoContainer>
         </StyledCard>
     )
@@ -75,6 +83,7 @@ const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
     product: PropTypes.object.isRequired,
+    handleAddToCart: PropTypes.func.isRequired,
 }
 
 export default ProductCard
