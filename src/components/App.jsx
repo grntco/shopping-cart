@@ -2,8 +2,11 @@
 import Header from './Header'
 import PageContent from './PageContent'
 import Footer from './Footer'
+import { useState } from 'react'
 
 const App = () => {
+    const [cartItems, setCartItems] = useState([])
+
     return (
         <>
             <Header />
@@ -11,6 +14,8 @@ const App = () => {
             <Footer />
         </>
     )
+
+
 }
 
 export default App

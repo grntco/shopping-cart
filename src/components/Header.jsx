@@ -15,6 +15,9 @@ const Header = () => {
                     <li>
                         <NavLink to='/cart' data-testid='header__cart-link'>
                             <img src={cartIcon} alt='cart icon' />
+                            <CartItemsNumber>
+                                <div>5</div>
+                            </CartItemsNumber>
                         </NavLink>
                     </li>
                 </NavLinks>
@@ -43,6 +46,28 @@ const NavLink = styled(Link)`
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    position: relative;
+`
+
+const CartItemsNumber = styled.div`
+    position: absolute;
+    top: -18px;
+    right: -16px;
+    height: 16px;
+    min-width: 16px;
+    padding: 4px 2px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e964b6;
+    color: white;
+
+    div {
+        margin-left: 1px;
+    }
 `
 
 export default Header
