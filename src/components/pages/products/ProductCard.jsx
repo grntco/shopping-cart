@@ -8,10 +8,11 @@ import { useState } from 'react'
 
 const ProductCard = ({ product, handleAddToCart }) => {
     const [quantity, setQuantity] = useState(1)
+    const productPagePath = `/products/${product.id}`
 
     return (
         <StyledCard>
-            <CardImageLink>
+            <CardImageLink to={productPagePath}>
                 <img
                     src={product.image}
                     alt={product.title}
@@ -20,7 +21,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             </CardImageLink>
             <CardInfoContainer>
                 <CardInfoSection>
-                    <Link>
+                    <Link to={productPagePath}>
                         <h4>{product.title}</h4>
                     </Link>
                     <CardInfoRating>

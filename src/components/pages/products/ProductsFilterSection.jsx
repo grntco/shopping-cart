@@ -29,9 +29,11 @@ const ProductsFiltersContainer = styled.div`
         font-size: 0.8rem;
         font-weight: 900;
         text-transform: uppercase;
+        letter-spacing: 0.1rem;
     }
 
-    input, select {
+    input,
+    select {
         border: 1px solid grey;
         padding: 4px;
     }
