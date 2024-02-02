@@ -31,8 +31,21 @@ body {
     font-family: var(--font);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+}
+
+input {
+    font-family: var(--font-family);
+    color: grey;
+}
+
+input:focus,
+select:focus {
+    color: black;
+    outline-color: #e964b6;
 }

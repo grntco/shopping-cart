@@ -11,7 +11,6 @@ import { useEffect, useState } from 'react'
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
-    // const [searchInputValue, setSearchInputValue] = useState
 
     useEffect(() => {
         if (data) setProducts(data)
