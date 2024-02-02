@@ -7,7 +7,8 @@ import Button from '../../reusables/Button'
 import { useState } from 'react'
 
 const ProductCard = ({ product, handleAddToCart }) => {
-    const [quantity, setQuantity] = useState(0)
+    // const [quantity, setQuantity] = useState(0)
+    const [selectedProducts, setSelectedProducts] = useState([])
 
     return (
         <StyledCard>
@@ -30,15 +31,21 @@ const ProductCard = ({ product, handleAddToCart }) => {
                 </CardInfo>
                 <CardInfo>
                     <div>
-                        <Button onClick={handleDecrementQuantity}>-</Button>
-                        <Input value={quantity} />
-                        <Button onClick={handleIncrementQuantity}>+</Button>
+                        <Button onClick={handleDecrement}>-</Button>
+                        <Input value={selectedProducts.length} />
+                        <Button
+                            onClick={() => {
+                                handleIncrement(product)
+                            }}
+                        >
+                            +
+                        </Button>
                     </div>
                     <p>${product.price}</p>
                 </CardInfo>
                 <Button
                     onClick={() => {
-                        handleAddToCart(product)
+                        handleAddToCart(selectedProducts)
                     }}
                 >
                     Add to Cart
@@ -47,12 +54,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </StyledCard>
     )
 
-    function handleIncrementQuantity() {
-        setQuantity(quantity + 1)
+    function handleIncrement(newProduct) {
+        setSelectedProducts([...selectedProducts, newProduct])
     }
 
-    function handleDecrementQuantity() {
-        if (quantity > 0) setQuantity(quantity - 1)
+    function handleDecrement() {
+        selectedProducts.pop()
+        setSelectedProducts(
+            selectedProducts.slice(0, selectedProducts.length),
+        )
     }
 }
 
