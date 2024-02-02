@@ -7,7 +7,7 @@ import Button from '../../reusables/Button'
 import { useState } from 'react'
 
 const ProductCard = ({ product, handleAddToCart }) => {
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     return (
         <StyledCard>
@@ -56,7 +56,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
     }
 
     function handleDecrement() {
-        if (quantity > 0) setQuantity(parseInt(quantity) - 1)
+        if (quantity > 1) setQuantity(parseInt(quantity) - 1)
     }
 
     function handleInputChange(e) {
