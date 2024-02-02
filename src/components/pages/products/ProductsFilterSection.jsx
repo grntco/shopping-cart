@@ -21,6 +21,7 @@ const ProductsFilterContainer = styled.div`
 const ProductsFilterSection = ({
     handleSearchInputChange,
     handleCategoryChange,
+    handleSort,
 }) => {
     const { data, error, loading } = useData('/products/categories')
 
@@ -44,22 +45,39 @@ const ProductsFilterSection = ({
                     <input type='text' onChange={handleSearchInputChange} />
                     <Button>Search</Button>
                 </form>
-                <select name='' id='' onChange={handleCategoryChange}>
-                    <option value='all'>All</option>
-                    {data.map((category, index) => {
-                        return (
-                            <option key={index} value={category}>
-                                {capitalize(category)}
-                            </option>
-                        )
-                    })}
-                </select>
-                <select name='' id=''>
-                    <option value=''>A-Z</option>
-                    <option value=''>Z-A</option>
-                    <option value=''>Price (low to high)</option>
-                    <option value=''>Price (high to low)</option>
-                </select>
+                <div>
+                    <label htmlFor='category-select'>Category:</label>
+                    <select
+                        name='category-select'
+                        id=''
+                        onChange={handleCategoryChange}
+                    >
+                        <option value='all'>All</option>
+                        {data.map((category, index) => {
+                            return (
+                                <option key={index} value={category}>
+                                    {capitalize(category)}
+                                </option>
+                            )
+                        })}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor='sort-select'>Sort:</label>
+                    <select name='sort-select' id='' onChange={handleSort}>
+                        <option value='title-ascending'>A-Z</option>
+                        <option value='title-descending'>Z-A</option>
+                        <option value='price-ascending'>
+                            Price (low to high)
+                        </option>
+                        <option value='price-descending'>
+                            Price (high to low)
+                        </option>
+                        <option value='rating-descending'>
+                            Rating (high to low)
+                        </option>
+                    </select>
+                </div>
             </ProductsFilterContainer>
         </StyledProductsFilterSection>
     )
@@ -68,6 +86,7 @@ const ProductsFilterSection = ({
 ProductsFilterContainer.propTypes = {
     handleCategoryChange: PropTypes.func,
     handleSearchInputChange: PropTypes.func,
+    handleSort: PropTypes.func,
 }
 
 export default ProductsFilterSection

@@ -25,6 +25,7 @@ const ProductsPage = ({ handleAddToCart }) => {
             <ProductsFilterSection
                 handleSearchInputChange={handleSearchInputChange}
                 handleCategoryChange={handleCategoryChange}
+                handleSort={handleSort}
             />
             <ProductsGrid
                 products={products}
@@ -53,6 +54,67 @@ const ProductsPage = ({ handleAddToCart }) => {
                 data.filter((product) => product.category === newCategory),
             )
         }
+    }
+
+    function handleSort(e) {
+        const sortMethod = e.target.value
+        let compareFn
+
+        switch (sortMethod) {
+            case 'title-ascending':
+                compareFn = titleAscending
+                break
+            case 'title-descending':
+                compareFn = titleDescending
+                break
+            case 'price-ascending':
+                compareFn = priceAscending
+                break
+            case 'price-descending':
+                compareFn = priceDescending
+                break
+            case 'rating-descending':
+                compareFn = ratingDescending
+                break
+            default:
+                compareFn = titleAscending
+        }
+
+        function titleAscending(prev, next) {
+            const prevTitle = prev.title.toUpperCase()
+            const nextTitle = next.title.toUpperCase()
+
+            if (prevTitle < nextTitle) {
+                return -1
+            } else if (prevTitle > nextTitle) {
+                return 1
+            } else {
+                return 0
+            }
+        }
+        function titleDescending(prev, next) {
+            const prevTitle = prev.title.toUpperCase()
+            const nextTitle = next.title.toUpperCase()
+
+            if (prevTitle > nextTitle) {
+                return -1
+            } else if (prevTitle < nextTitle) {
+                return 1
+            } else {
+                return 0
+            }
+        }
+        function priceAscending(prev, next) {
+            return prev.price - next.price
+        }
+        function priceDescending(prev, next) {
+            return next.price - prev.price
+        }
+        function ratingDescending(prev, next) {
+            return next.rating.rate - prev.rating.rate
+        }
+
+        return setProducts([...data.sort(compareFn)])
     }
 }
 
