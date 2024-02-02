@@ -19,11 +19,11 @@ const HeroSection = styled.section`
         text-align: center;
         font-size: clamp(1.2rem, 10vw, 5rem);
         font-style: italic;
+        text-transform: uppercase;
         font-weight: 900;
         color: white;
         span {
             color: #e964b6;
-
         }
     }
 `

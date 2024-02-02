@@ -3,6 +3,7 @@ import useData from '../../../hooks/useData'
 import LoadingPage from '../loading/LoadingPage'
 import QuantitySelector from '../../reusables/QuantitySelector'
 import Button from '../../reusables/Button'
+import PropTypes from 'prop-types'
 
 const StyledSingleProductPage = styled.section`
     flex-grow: 1;
@@ -40,7 +41,7 @@ const ProductPrimaryInfo = styled.div`
     justify-content: space-between;
 `
 
-const SingleProductPage = ({ id }) => {
+const SingleProductPage = ({ id, handleAddToCart }) => {
     const { data, error, loading } = useData(`/products/${id}`)
 
     if (error) return <p>An error occurred. Please check back later.</p>
@@ -66,7 +67,7 @@ const SingleProductPage = ({ id }) => {
                 <QuantitySelector product={data} />
                 <Button
                     onClick={() => {
-                        handleAddToCart(product, quantity)
+                        handleAddToCart(data, 1)
                     }}
                 >
                     Add to Cart
@@ -74,6 +75,11 @@ const SingleProductPage = ({ id }) => {
             </ProductInfoContainer>
         </StyledSingleProductPage>
     )
+}
+
+SingleProductPage.propTypes = {
+    id: PropTypes.number,
+    handleAddToCart: PropTypes.func.isRequired,
 }
 
 export default SingleProductPage
