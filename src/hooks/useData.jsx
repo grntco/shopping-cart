@@ -8,7 +8,6 @@ const useData = (path) => {
     useEffect(() => {
         fetch(`https://fakestoreapi.com${path}`)
             .then((response) => {
-                console.log(path)
                 if (response.status >= 400) {
                     throw new Error('server error')
                 }
@@ -17,7 +16,7 @@ const useData = (path) => {
             .then((response) => setData(response))
             .catch((error) => setError(error))
             .finally(() => setLoading(false))
-    }, [])
+    }, [path])
 
     return { data, error, loading }
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Button from '../../reusables/Button'
 import useData from '../../../hooks/useData'
 import capitalize from '../../../utils/capitalize'
+import PropTypes from 'prop-types'
 
 const StyledProductsFilterSection = styled.section`
     padding: 48px 96px;
@@ -17,7 +18,7 @@ const ProductsFilterContainer = styled.div`
     gap: 16px;
 `
 
-const ProductsFilterSection = () => {
+const ProductsFilterSection = ({ handleCategoryChange }) => {
     const { data, error, loading } = useData('/products/categories')
 
     if (error)
@@ -33,7 +34,6 @@ const ProductsFilterSection = () => {
             </StyledProductsFilterSection>
         )
 
-    console.log(data)
     return (
         <StyledProductsFilterSection>
             <ProductsFilterContainer>
@@ -41,8 +41,8 @@ const ProductsFilterSection = () => {
                     <input type='text' />
                     <Button>Search</Button>
                 </form>
-                <select name='' id=''>
-                    <option value=''>All</option>
+                <select name='' id='' onChange={handleCategoryChange}>
+                    <option value='all'>All</option>
                     {data.map((category, index) => {
                         return (
                             <option key={index} value={category}>
@@ -60,6 +60,10 @@ const ProductsFilterSection = () => {
             </ProductsFilterContainer>
         </StyledProductsFilterSection>
     )
+}
+
+ProductsFilterContainer.propTypes = {
+    handleCategoryChange: PropTypes.func
 }
 
 export default ProductsFilterSection
