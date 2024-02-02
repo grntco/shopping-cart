@@ -69,6 +69,7 @@ const StyledCard = styled.div`
     flex-direction: column;
     gap: 8px;
     padding: 24px;
+    max-width: 336px;
 `
 
 const CardImageLink = styled(Link)`
@@ -77,7 +78,6 @@ const CardImageLink = styled(Link)`
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    max-width: 336px;
 
     img {
         width: 100%;
