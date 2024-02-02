@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import starIcon from '../../../assets/icons/star.svg'
+import starIcon from '../../../assets/icons/star.png'
 import Icon from '../../reusables/Icon'
 import Button from '../../reusables/Button'
 import { useState } from 'react'
@@ -20,7 +20,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
                 />
             </CardImageLink>
             <CardInfoContainer>
-                <CardInfo>
+                <CardInfoSection>
                     <Link>
                         <h4>{product.title}</h4>
                     </Link>
@@ -28,21 +28,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
                         <Icon src={starIcon} alt='star icon' />
                         <p>{product.rating.rate}</p>
                     </CardInfoRating>
-                </CardInfo>
-                <CardInfo>
-                    <div>
-                        <Button onClick={handleDecrement}>-</Button>
-                        <Input value={selectedProducts.length} />
-                        <Button
-                            onClick={() => {
-                                handleIncrement(product)
-                            }}
-                        >
-                            +
-                        </Button>
-                    </div>
+                </CardInfoSection>
+                <CardInfoSection>
+                    <CardAdjustCountContainer>
+                        <Button onClick={handleDecrement}>–</Button>
+                        <input value={selectedProducts.length} />
+                        <Button onClick={handleIncrement}>+</Button>
+                    </CardAdjustCountContainer>
                     <p>${product.price}</p>
-                </CardInfo>
+                </CardInfoSection>
                 <Button
                     onClick={() => {
                         handleAddToCart(selectedProducts)
@@ -54,22 +48,20 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </StyledCard>
     )
 
-    function handleIncrement(newProduct) {
-        setSelectedProducts([...selectedProducts, newProduct])
+    function handleIncrement(product) {
+        setSelectedProducts([...selectedProducts, product])
     }
 
     function handleDecrement() {
         selectedProducts.pop()
-        setSelectedProducts(
-            selectedProducts.slice(0, selectedProducts.length),
-        )
+        setSelectedProducts(selectedProducts.slice(0, selectedProducts.length))
     }
 }
 
 const StyledCard = styled.div`
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
+    gap: 8px;
     padding: 24px;
 `
 
@@ -79,7 +71,6 @@ const CardImageLink = styled(Link)`
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    width: 100%;
     max-width: 336px;
 
     img {
@@ -90,24 +81,51 @@ const CardImageLink = styled(Link)`
 const CardInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 8px;
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 500;
+    }
 `
 
-const CardInfo = styled.div`
+const CardInfoSection = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: start;
+    gap: 8px;
 `
 
-const Input = styled.input`
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+const CardAdjustCountContainer = styled.div`
+    height: 2rem;
+    display: flex;
+    gap: 2px;
+
+    input {
+        width: 2rem;
+        text-align: center;
+        border: none;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    Button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        font-size: 1.2rem;
     }
 `
 
 const CardInfoRating = styled.div`
     display: flex;
+    align-items: center;
     flex-wrap: nowrap;
+    gap: 2px;
 `
 
 ProductCard.propTypes = {

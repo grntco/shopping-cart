@@ -15,7 +15,6 @@ const App = () => {
         </>
     )
 
-    // eventually this will be ...newProducts spread into the array
     function handleAddToCart(selectedProducts) {
         setCart([...cart, ...selectedProducts])
     }
