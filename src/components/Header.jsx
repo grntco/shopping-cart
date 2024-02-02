@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const Header = ({ cart }) => {
     return (
-        <header data-testid='header'>
+        <StyledHeader data-testid='header'>
             <Nav>
                 <Logo />
                 <NavLinks>
@@ -25,9 +25,16 @@ const Header = ({ cart }) => {
                     </li>
                 </NavLinks>
             </Nav>
-        </header>
+        </StyledHeader>
     )
 }
+
+const StyledHeader = styled.header`
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+`
 
 const Nav = styled.nav`
     display: flex;
@@ -45,7 +52,7 @@ const NavLinks = styled.ul`
 `
 
 const NavLink = styled(Link)`
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
