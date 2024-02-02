@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from '../../reusables/Button'
-import useCategories from '../../../hooks/useCategories'
+import useData from '../../../hooks/useData'
 import capitalize from '../../../utils/capitalize'
 
 const StyledProductsFilterSection = styled.section`
@@ -18,7 +18,7 @@ const ProductsFilterContainer = styled.div`
 `
 
 const ProductsFilterSection = () => {
-    const { categories, error, loading } = useCategories()
+    const { data, error, loading } = useData('/products/categories')
 
     if (error)
         return (
@@ -33,7 +33,7 @@ const ProductsFilterSection = () => {
             </StyledProductsFilterSection>
         )
 
-    console.log(categories)
+    console.log(data)
     return (
         <StyledProductsFilterSection>
             <ProductsFilterContainer>
@@ -43,7 +43,7 @@ const ProductsFilterSection = () => {
                 </form>
                 <select name='' id=''>
                     <option value=''>All</option>
-                    {categories.map((category, index) => {
+                    {data.map((category, index) => {
                         return (
                             <option key={index} value={category}>
                                 {capitalize(category)}

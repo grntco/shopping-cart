@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react'
 
-const useCategories = () => {
-    const [categories, setCategories] = useState(null)
+const useData = (path) => {
+    const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/categories')
+        fetch(`https://fakestoreapi.com${path}`)
             .then((response) => {
+                console.log(path)
                 if (response.status >= 400) {
                     throw new Error('server error')
                 }
                 return response.json()
             })
-            .then((response) => setCategories(response))
+            .then((response) => setData(response))
             .catch((error) => setError(error))
             .finally(() => setLoading(false))
     }, [])
 
-    return { categories, error, loading }
+    return { data, error, loading }
 }
 
-export default useCategories
+export default useData
