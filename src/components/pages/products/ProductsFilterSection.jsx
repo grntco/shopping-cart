@@ -18,7 +18,10 @@ const ProductsFilterContainer = styled.div`
     gap: 16px;
 `
 
-const ProductsFilterSection = ({ handleCategoryChange }) => {
+const ProductsFilterSection = ({
+    handleSearchInputChange,
+    handleCategoryChange,
+}) => {
     const { data, error, loading } = useData('/products/categories')
 
     if (error)
@@ -38,7 +41,7 @@ const ProductsFilterSection = ({ handleCategoryChange }) => {
         <StyledProductsFilterSection>
             <ProductsFilterContainer>
                 <form action=''>
-                    <input type='text' />
+                    <input type='text' onChange={handleSearchInputChange} />
                     <Button>Search</Button>
                 </form>
                 <select name='' id='' onChange={handleCategoryChange}>
@@ -63,7 +66,8 @@ const ProductsFilterSection = ({ handleCategoryChange }) => {
 }
 
 ProductsFilterContainer.propTypes = {
-    handleCategoryChange: PropTypes.func
+    handleCategoryChange: PropTypes.func,
+    handleSearchInputChange: PropTypes.func,
 }
 
 export default ProductsFilterSection

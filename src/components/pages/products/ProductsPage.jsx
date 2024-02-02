@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
+    // const [searchInputValue, setSearchInputValue] = useState
 
     useEffect(() => {
         if (data) setProducts(data)
@@ -22,6 +23,7 @@ const ProductsPage = ({ handleAddToCart }) => {
     return (
         <>
             <ProductsFilterSection
+                handleSearchInputChange={handleSearchInputChange}
                 handleCategoryChange={handleCategoryChange}
             />
             <ProductsGrid
@@ -30,6 +32,16 @@ const ProductsPage = ({ handleAddToCart }) => {
             />
         </>
     )
+
+    function handleSearchInputChange(e) {
+        setProducts(
+            data.filter((product) =>
+                product.title
+                    .toLowerCase()
+                    .includes(e.target.value.toLowerCase()),
+            ),
+        )
+    }
 
     function handleCategoryChange(e) {
         const newCategory = e.target.value
