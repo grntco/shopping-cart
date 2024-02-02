@@ -9,14 +9,20 @@ const App = () => {
 
     return (
         <>
-            <Header cart={cart}/>
-            <PageContent handleAddToCart={handleAddToCart}/>
+            <Header cart={cart} />
+            <PageContent handleAddToCart={handleAddToCart} />
             <Footer />
         </>
     )
 
-    function handleAddToCart(selectedProducts) {
-        setCart([...cart, ...selectedProducts])
+    function handleAddToCart(product, quantity) {
+        if (quantity > 0) {
+            let productsQueue = []
+            for (let i = quantity; i > 0; i--) {
+                productsQueue.push(product)
+            }
+            setCart([...cart, ...productsQueue])
+        }
     }
 }
 

@@ -7,8 +7,7 @@ import Button from '../../reusables/Button'
 import { useState } from 'react'
 
 const ProductCard = ({ product, handleAddToCart }) => {
-    // const [quantity, setQuantity] = useState(0)
-    const [selectedProducts, setSelectedProducts] = useState([])
+    const [quantity, setQuantity] = useState(0)
 
     return (
         <StyledCard>
@@ -32,14 +31,18 @@ const ProductCard = ({ product, handleAddToCart }) => {
                 <CardInfoSection>
                     <CardAdjustCountContainer>
                         <Button onClick={handleDecrement}>–</Button>
-                        <input value={selectedProducts.length} />
+                        <input
+                            type='number'
+                            value={quantity}
+                            onChange={handleInputChange}
+                        />
                         <Button onClick={handleIncrement}>+</Button>
                     </CardAdjustCountContainer>
                     <p>${product.price}</p>
                 </CardInfoSection>
                 <Button
                     onClick={() => {
-                        handleAddToCart(selectedProducts)
+                        handleAddToCart(product, quantity)
                     }}
                 >
                     Add to Cart
@@ -48,13 +51,16 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </StyledCard>
     )
 
-    function handleIncrement(product) {
-        setSelectedProducts([...selectedProducts, product])
+    function handleIncrement() {
+        setQuantity(parseInt(quantity) + 1)
     }
 
     function handleDecrement() {
-        selectedProducts.pop()
-        setSelectedProducts(selectedProducts.slice(0, selectedProducts.length))
+        if (quantity > 0) setQuantity(parseInt(quantity) - 1)
+    }
+
+    function handleInputChange(e) {
+        setQuantity(e.target.value)
     }
 }
 
