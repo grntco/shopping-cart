@@ -5,6 +5,7 @@ import starIcon from '../../../assets/icons/star.png'
 import Icon from '../../reusables/Icon'
 import Button from '../../reusables/Button'
 import { useState } from 'react'
+import QuantitySelector from '../../reusables/QuantitySelector'
 
 const ProductCard = ({ product, handleAddToCart }) => {
     const [quantity, setQuantity] = useState(1)
@@ -30,15 +31,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
                     </CardInfoRating>
                 </CardInfoSection>
                 <CardInfoSection>
-                    <CardAdjustCountContainer>
-                        <Button onClick={handleDecrement}>–</Button>
+                    <QuantitySelector>
+                        {/* <Button onClick={handleDecrement}>–</Button>
                         <input
                             type='number'
                             value={quantity}
                             onChange={handleInputChange}
                         />
-                        <Button onClick={handleIncrement}>+</Button>
-                    </CardAdjustCountContainer>
+                        <Button onClick={handleIncrement}>+</Button> */}
+                    </QuantitySelector>
                     <p>${product.price}</p>
                 </CardInfoSection>
                 <Button
@@ -52,17 +53,17 @@ const ProductCard = ({ product, handleAddToCart }) => {
         </StyledCard>
     )
 
-    function handleIncrement() {
-        setQuantity(parseInt(quantity) + 1)
-    }
+    // function handleIncrement() {
+    //     setQuantity(parseInt(quantity) + 1)
+    // }
 
-    function handleDecrement() {
-        if (quantity > 1) setQuantity(parseInt(quantity) - 1)
-    }
+    // function handleDecrement() {
+    //     if (quantity > 1) setQuantity(parseInt(quantity) - 1)
+    // }
 
-    function handleInputChange(e) {
-        setQuantity(e.target.value)
-    }
+    // function handleInputChange(e) {
+    //     setQuantity(e.target.value)
+    // }
 }
 
 const StyledCard = styled.div`
@@ -103,7 +104,7 @@ const CardInfoSection = styled.div`
     gap: 8px;
 `
 
-const CardAdjustCountContainer = styled.div`
+const AdjustCountContainer = styled.div`
     height: 2rem;
     display: flex;
     gap: 2px;

@@ -22,7 +22,7 @@ const PageContent = ({ handleAddToCart }) => {
             ) : params.name === 'cart' ? (
                 <CartPage />
             ) : params.id ? ( 
-                <SingleProductPage/>
+                <SingleProductPage id={params.id}/>
             ) : (
                 <HomePage />
             )}
