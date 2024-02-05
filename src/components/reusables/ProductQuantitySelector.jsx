@@ -36,7 +36,7 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     }
 
     function handleInputChange(e) {
-        setQuantity(parseInt(e.target.value))?
+        setQuantity(parseInt(e.target.value))
     }
 }
 
