@@ -28,16 +28,15 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     )
 
     function handleIncrement() {
-        setQuantity(parseInt(quantity) + 1)
+        setQuantity(quantity + 1)
     }
 
     function handleDecrement() {
-        if (quantity > 1) setQuantity(parseInt(quantity) - 1)
+        if (quantity > 1) setQuantity(quantity - 1)
     }
 
     function handleInputChange(e) {
-        setQuantity(e.target.value)
-        // parseInt here instead?
+        setQuantity(parseInt(e.target.value))?
     }
 }
 
