@@ -5,12 +5,14 @@ import PropTypes from 'prop-types'
 import CartProductItem from './CartProductItem'
 
 const CartPage = ({ cart }) => {
+    const cartSet = Array.from(new Set(cart))
+
     return (
         <StyledCartPage>
             <CartPageColumn>
                 <h2>Your Cart</h2>
                 <CartContainer>
-                    {cart.map((product, index) => {
+                    {cartSet.map((product, index) => {
                         return (
                             <CartProductItem
                                 key={index}

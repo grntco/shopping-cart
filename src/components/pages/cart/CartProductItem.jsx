@@ -5,6 +5,8 @@ import formatToUSD from '../../../utils/formatToUSD'
 import PropTypes from 'prop-types'
 
 const CartProductItem = ({ cart, product }) => {
+    const quantity = cart.filter((item) => item === product).length
+
     return (
         <StyledCartProductItem>
             <Link to={`/products/${product.id}`}>
@@ -15,13 +17,7 @@ const CartProductItem = ({ cart, product }) => {
                     <h4>{product.title}</h4>
                 </Link>
                 <p>{formatToUSD(product.price)}</p>
-                <p>
-                    Quantity:{' '}
-                    {
-                        cart.filter((productItem) => productItem === product)
-                            .length
-                    }
-                </p>
+                <p>Quantity: {quantity}</p>
             </div>
         </StyledCartProductItem>
     )
