@@ -1,7 +1,4 @@
-// import { Link } from "react-router-dom"
-// import useProducts from '../../../hooks/useProducts'
 import useData from '../../../hooks/useData'
-// import styled from 'styled-components'
 import ProductsFilterSection from './ProductsFilterSection'
 import ProductsGrid from './ProductsGrid'
 import LoadingPage from '../loading/LoadingPage'
