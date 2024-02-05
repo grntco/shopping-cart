@@ -4,19 +4,20 @@ import lockIcon from '../../../assets/icons/lock.svg'
 import PropTypes from 'prop-types'
 import CartProductItem from './CartProductItem'
 import formatToUSD from '../../../utils/formatToUSD'
+import groupProductsWithQuantities from '../../../utils/groupProductsWithQuantities'
+import getSubtotal from '../../../utils/getSubtotal'
 
 const CartPage = ({ cart }) => {
-    const cartSet = Array.from(new Set(cart))
-    const subtotal = cart.reduce((accumulator, product) => {
-        return accumulator + product.price
-    }, 0)
+    const cleanCart = groupProductsWithQuantities(cart)
+    const subtotal = getSubtotal(cart)
     const shipping = subtotal >= 50 ? 0 : 10
 
     if (cart.length === 0)
         return (
-            <section>
+            <EmptyCartPage>
+                <h2>Your Cart is Empty</h2>
                 Add products to your cart to see them appear here!
-            </section>
+            </EmptyCartPage>
         )
 
     return (
@@ -24,11 +25,11 @@ const CartPage = ({ cart }) => {
             <CartPageColumn>
                 <h2>Your Cart</h2>
                 <CartContainer>
-                    {cartSet.map((product, index) => {
+                    {cleanCart.map((product, index) => {
                         return (
                             <CartProductItem
                                 key={index}
-                                cart={cart}
+                                // cart={cart}
                                 product={product}
                             />
                         )
@@ -68,6 +69,15 @@ const CartPage = ({ cart }) => {
         </StyledCartPage>
     )
 }
+
+const EmptyCartPage = styled.section`
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+`
 
 const StyledCartPage = styled.section`
     display: grid;

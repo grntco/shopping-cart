@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 import formatToUSD from '../../../utils/formatToUSD'
 import PropTypes from 'prop-types'
 
-const CartProductItem = ({ cart, product }) => {
-    const quantity = cart.filter((item) => item === product).length
-
+const CartProductItem = ({ product }) => {
     return (
         <StyledCartProductItem>
             <Link to={`/products/${product.id}`}>
@@ -17,7 +15,7 @@ const CartProductItem = ({ cart, product }) => {
                     <h4>{product.title}</h4>
                 </Link>
                 <p>{formatToUSD(product.price)}</p>
-                <p>Quantity: {quantity}</p>
+                <p>Quantity: {product.quantity}</p>
             </div>
         </StyledCartProductItem>
     )
@@ -25,7 +23,7 @@ const CartProductItem = ({ cart, product }) => {
 
 const StyledCartProductItem = styled.li`
     display: flex;
-    gap: 8px;
+    gap: 16px;
     padding: 12px 16px;
 
     a {
