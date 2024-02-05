@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import heroImage from '../../../assets/images/hero-image.jpg'
-import ButtonLink from '../../reusables/ButtonLink'
+import ButtonLink from '../../reusables/buttons/ButtonLink'
 
 const HeroSection = styled.section`
     background-image: ${`url(${heroImage})`};

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from '../../reusables/Button'
+import Button from '../../reusables/buttons/Button'
 import lockIcon from '../../../assets/icons/lock.svg'
 import PropTypes from 'prop-types'
 import CartProductItem from './CartProductItem'

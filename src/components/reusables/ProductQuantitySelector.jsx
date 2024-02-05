@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from './Button'
+import Button from './buttons/Button'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
