@@ -3,12 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import starIcon from '../../../assets/icons/star.png'
 import Icon from '../../reusables/Icon'
-import Button from '../../reusables/Button'
-import { useState } from 'react'
-import QuantitySelector from '../../reusables/QuantitySelector'
+import ProductQuantitySelector from '../../reusables/ProductQuantitySelector'
 
 const ProductCard = ({ product, handleAddToCart }) => {
-    const [quantity, setQuantity] = useState(1)
     const productPagePath = `/products/${product.id}`
 
     return (
@@ -30,40 +27,14 @@ const ProductCard = ({ product, handleAddToCart }) => {
                         <p>{product.rating.rate}</p>
                     </CardInfoRating>
                 </CardInfoSection>
-                <CardInfoSection>
-                    <QuantitySelector>
-                        {/* <Button onClick={handleDecrement}>–</Button>
-                        <input
-                            type='number'
-                            value={quantity}
-                            onChange={handleInputChange}
-                        />
-                        <Button onClick={handleIncrement}>+</Button> */}
-                    </QuantitySelector>
-                    <p>${product.price}</p>
-                </CardInfoSection>
-                <Button
-                    onClick={() => {
-                        handleAddToCart(product, quantity)
-                    }}
-                >
-                    Add to Cart
-                </Button>
+                <p>${product.price}</p>
+                <ProductQuantitySelector
+                    product={product}
+                    handleAddToCart={handleAddToCart}
+                />
             </CardInfoContainer>
         </StyledCard>
     )
-
-    // function handleIncrement() {
-    //     setQuantity(parseInt(quantity) + 1)
-    // }
-
-    // function handleDecrement() {
-    //     if (quantity > 1) setQuantity(parseInt(quantity) - 1)
-    // }
-
-    // function handleInputChange(e) {
-    //     setQuantity(e.target.value)
-    // }
 }
 
 const StyledCard = styled.div`
@@ -102,31 +73,6 @@ const CardInfoSection = styled.div`
     justify-content: space-between;
     align-items: start;
     gap: 8px;
-`
-
-const AdjustCountContainer = styled.div`
-    height: 2rem;
-    display: flex;
-    gap: 2px;
-
-    input {
-        width: 2rem;
-        text-align: center;
-        border: none;
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    }
-
-    Button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-        font-size: 1.2rem;
-    }
 `
 
 const CardInfoRating = styled.div`

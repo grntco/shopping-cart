@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 import Button from './Button'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-const QuantitySelector = () => {
+const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     const [quantity, setQuantity] = useState(1)
 
     return (
-        <>
-            <StyledQuantitySelector>
+        <StyledQuantitySelector>
+            <QuantityInputContainer>
                 <Button onClick={handleDecrement}>–</Button>
                 <input
                     type='number'
@@ -15,9 +16,15 @@ const QuantitySelector = () => {
                     onChange={handleInputChange}
                 />
                 <Button onClick={handleIncrement}>+</Button>
-            </StyledQuantitySelector>
-
-        </>
+            </QuantityInputContainer>
+            <Button
+                onClick={() => {
+                    handleAddToCart(product, quantity)
+                }}
+            >
+                Add to Cart
+            </Button>
+        </StyledQuantitySelector>
     )
 
     function handleIncrement() {
@@ -30,10 +37,17 @@ const QuantitySelector = () => {
 
     function handleInputChange(e) {
         setQuantity(e.target.value)
+        // parseInt here instead?
     }
 }
 
 const StyledQuantitySelector = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+`
+
+const QuantityInputContainer = styled.div`
     height: 2rem;
     display: flex;
     gap: 2px;
@@ -58,4 +72,9 @@ const StyledQuantitySelector = styled.div`
     }
 `
 
-export default QuantitySelector
+ProductQuantitySelector.propTypes = {
+    product: PropTypes.object.isRequired,
+    handleAddToCart: PropTypes.func.isRequired,
+}
+
+export default ProductQuantitySelector
