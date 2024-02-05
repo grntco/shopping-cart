@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import useData from '../../../hooks/useData'
 import LoadingPage from '../loading/LoadingPage'
 import ProductQuantitySelector from '../../reusables/ProductQuantitySelector'
+import formatToUSD from '../../../utils/formatToUSD'
 import PropTypes from 'prop-types'
 
 const SingleProductPage = ({ id, handleAddToCart }) => {
@@ -22,7 +23,7 @@ const SingleProductPage = ({ id, handleAddToCart }) => {
                 </ProductMetaData>
                 <ProductPrimaryInfo>
                     <h1>{data.title}</h1>
-                    <div>${data.price}</div>
+                    <div>{formatToUSD(data.price)}</div>
                 </ProductPrimaryInfo>
                 <p>{data.description}</p>
                 <ProductQuantitySelector
@@ -68,7 +69,11 @@ const ProductPrimaryInfo = styled.div`
     display: flex;
     align-items: end;
     justify-content: space-between;
-`
+
+    div {
+        font-size: 1.5rem;
+    }
+`    
 
 SingleProductPage.propTypes = {
     id: PropTypes.number,

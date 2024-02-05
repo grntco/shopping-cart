@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import starIcon from '../../../assets/icons/star.png'
 import Icon from '../../reusables/Icon'
 import ProductQuantitySelector from '../../reusables/ProductQuantitySelector'
+import formatToUSD from '../../../utils/formatToUSD'
 
 const ProductCard = ({ product, handleAddToCart }) => {
     const productPagePath = `/products/${product.id}`
@@ -27,7 +28,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
                         <p>{product.rating.rate}</p>
                     </CardInfoRating>
                 </CardInfoSection>
-                <p>${product.price}</p>
+                <p>{formatToUSD(product.price)}</p>
                 <ProductQuantitySelector
                     product={product}
                     handleAddToCart={handleAddToCart}
