@@ -26,6 +26,7 @@ const CartProductItem = ({ cart, product }) => {
 const StyledCartProductItem = styled.li`
     display: flex;
     gap: 8px;
+    padding: 12px 16px;
 
     a {
         cursor: pointer;
