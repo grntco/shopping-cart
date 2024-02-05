@@ -7,10 +7,19 @@ const Button = styled.button`
     outline: none;
     padding: 12px 16px;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 
     &:hover{
         opacity: 0.8;
         cursor: pointer;
+    }
+
+    img {
+        filter: invert(100%);
+        height: 1rem;
     }
 `
 
