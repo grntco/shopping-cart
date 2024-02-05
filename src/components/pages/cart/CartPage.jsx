@@ -1,13 +1,25 @@
 import styled from 'styled-components'
 import Button from '../../reusables/Button'
 import lockIcon from '../../../assets/icons/lock.svg'
+import PropTypes from 'prop-types'
+import CartProductItem from './CartProductItem'
 
-const CartPage = () => {
+const CartPage = ({ cart }) => {
     return (
         <StyledCartPage>
             <CartPageColumn>
                 <h2>Your Cart</h2>
-                <CartContainer></CartContainer>
+                <CartContainer>
+                    {cart.map((product, index) => {
+                        return (
+                            <CartProductItem
+                                key={index}
+                                cart={cart}
+                                product={product}
+                            />
+                        )
+                    })}
+                </CartContainer>
             </CartPageColumn>
             <CartPageColumn>
                 <h2>Summary</h2>
@@ -50,7 +62,11 @@ const CartPageColumn = styled.div`
     gap: 24px;
 `
 
-const CartContainer = styled.div``
+const CartContainer = styled.ul`
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+`
 
 const PriceSummaryContainer = styled.div`
     display: flex;
@@ -62,5 +78,9 @@ const PriceSummaryContainer = styled.div`
         justify-content: space-between;
     }
 `
+
+CartPage.propTypes = {
+    cart: PropTypes.array.isRequired,
+}
 
 export default CartPage

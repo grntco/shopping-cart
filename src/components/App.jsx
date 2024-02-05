@@ -10,7 +10,7 @@ const App = () => {
     return (
         <>
             <Header cart={cart} />
-            <PageContent handleAddToCart={handleAddToCart} />
+            <PageContent cart={cart} handleAddToCart={handleAddToCart} />
             <Footer />
         </>
     )
