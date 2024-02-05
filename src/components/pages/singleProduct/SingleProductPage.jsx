@@ -13,37 +13,52 @@ const SingleProductPage = ({ id, handleAddToCart }) => {
 
     return (
         <StyledSingleProductPage>
-            <div>
-                <img src={data.image} alt={data.title} />
-            </div>
-            <ProductInfoContainer>
-                <ProductMetaData>
-                    <div>SKU: {data.id}</div>
-                    <div>Category: {data.category}</div>
-                </ProductMetaData>
-                <ProductPrimaryInfo>
-                    <h1>{data.title}</h1>
-                    <div>{formatToUSD(data.price)}</div>
-                </ProductPrimaryInfo>
-                <p>{data.description}</p>
-                <ProductQuantitySelector
-                    product={data}
-                    handleAddToCart={handleAddToCart}
-                />
-            </ProductInfoContainer>
+            <SingleProductContainer>
+                <ProductImageWrapper>
+                    <img src={data.image} alt={data.title} />
+                </ProductImageWrapper>
+                <ProductInfoContainer>
+                    <ProductMetaData>
+                        <div>SKU: {data.id}</div>
+                        <div>Category: {data.category}</div>
+                    </ProductMetaData>
+                    <ProductPrimaryInfo>
+                        <h1>{data.title}</h1>
+                        <div>{formatToUSD(data.price)}</div>
+                    </ProductPrimaryInfo>
+                    <p>{data.description}</p>
+                    <ProductQuantitySelector
+                        product={data}
+                        handleAddToCart={handleAddToCart}
+                    />
+                </ProductInfoContainer>
+            </SingleProductContainer>
         </StyledSingleProductPage>
     )
 }
 
 const StyledSingleProductPage = styled.section`
     flex-grow: 1;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 48px 96px;
+    max-width: 1200px;
+`
+
+const SingleProductContainer = styled.div`
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
     gap: 48px;
+`
+
+const ProductImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
 
     img {
-        max-width: 448px;
+        max-width: 400px;
     }
 `
 
@@ -73,7 +88,7 @@ const ProductPrimaryInfo = styled.div`
     div {
         font-size: 1.5rem;
     }
-`    
+`
 
 SingleProductPage.propTypes = {
     id: PropTypes.number,
