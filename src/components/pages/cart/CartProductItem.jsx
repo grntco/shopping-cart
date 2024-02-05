@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import ButtonIcon from '../../reusables/buttons/ButtonIcon'
 import trashIcon from '../../../assets/icons/trash-2.svg'
 
-const CartProductItem = ({ product }) => {
+const CartProductItem = ({ product, handleDeleteFromCart }) => {
     return (
         <StyledCartProductItem>
             <Link to={`/products/${product.id}`}>
@@ -20,7 +20,11 @@ const CartProductItem = ({ product }) => {
                 <p>Quantity: {product.quantity}</p>
             </div>
             <ButtonIcon>
-                <img src={trashIcon} alt='trash icon' />
+                <img
+                    src={trashIcon}
+                    alt='trash icon'
+                    onClick={() => {handleDeleteFromCart(product)}}
+                />
             </ButtonIcon>
         </StyledCartProductItem>
     )
@@ -51,8 +55,8 @@ const StyledCartProductItem = styled.li`
 `
 
 CartProductItem.propTypes = {
-    cart: PropTypes.array.isRequired,
     product: PropTypes.object.isRequired,
+    handleDeleteFromCart: PropTypes.func.isRequired,
 }
 
 export default CartProductItem

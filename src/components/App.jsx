@@ -6,11 +6,16 @@ import { useState } from 'react'
 
 const App = () => {
     const [cart, setCart] = useState([])
+    console.log(cart)
 
     return (
         <>
             <Header cart={cart} />
-            <PageContent cart={cart} handleAddToCart={handleAddToCart} />
+            <PageContent
+                cart={cart}
+                handleAddToCart={handleAddToCart}
+                handleDeleteFromCart={handleDeleteFromCart}
+            />
             <Footer />
         </>
     )
@@ -23,6 +28,15 @@ const App = () => {
             }
             setCart([...cart, ...productsQueue])
         }
+    }
+
+    function handleDeleteFromCart(currentProduct) {
+        console.log('called!')
+        const cartWithoutProduct = cart.filter(
+            (product) => product.title !== currentProduct.title,
+        )
+        setCart(cartWithoutProduct)
+        // console.log(cart)
     }
 }
 

@@ -12,7 +12,7 @@ const StyledMain = styled.main`
     flex-direction: column;
 `
 
-const PageContent = ({ cart, handleAddToCart }) => {
+const PageContent = ({ cart, handleAddToCart, handleDeleteFromCart }) => {
     const params = useParams()
 
     return (
@@ -20,7 +20,10 @@ const PageContent = ({ cart, handleAddToCart }) => {
             {params.name === 'products' ? (
                 <ProductsPage handleAddToCart={handleAddToCart} />
             ) : params.name === 'cart' ? (
-                <CartPage cart={cart} />
+                <CartPage
+                    cart={cart}
+                    handleDeleteFromCart={handleDeleteFromCart}
+                />
             ) : params.id ? (
                 <SingleProductPage
                     id={params.id}
@@ -36,6 +39,7 @@ const PageContent = ({ cart, handleAddToCart }) => {
 PageContent.propTypes = {
     cart: PropTypes.array.isRequired,
     handleAddToCart: PropTypes.func.isRequired,
+    handleDeleteFromCart: PropTypes.func.isRequired,
 }
 
 export default PageContent
