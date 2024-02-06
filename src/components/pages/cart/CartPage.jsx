@@ -7,7 +7,7 @@ import formatToUSD from '../../../utils/formatToUSD'
 import groupProductsWithQuantities from '../../../utils/groupProductsWithQuantities'
 import getSubtotal from '../../../utils/getSubtotal'
 
-const CartPage = ({ cart, handleDeleteFromCart}) => {
+const CartPage = ({ cart, handleDeleteFromCart, handleQuantitySelectChange}) => {
     const cleanCart = groupProductsWithQuantities(cart)
     const subtotal = getSubtotal(cart)
     const shipping = subtotal >= 50 ? 0 : 10
@@ -31,6 +31,7 @@ const CartPage = ({ cart, handleDeleteFromCart}) => {
                                 key={index}
                                 product={product}
                                 handleDeleteFromCart={handleDeleteFromCart}
+                                handleQuantitySelectChange={handleQuantitySelectChange}
                             />
                         )
                     })}
@@ -41,7 +42,7 @@ const CartPage = ({ cart, handleDeleteFromCart}) => {
                 <p>
                     {subtotal >= 50
                         ? 'Woohoo! You qualify for free shipping!'
-                        : `Spend ${formatToUSD(50 - subtotal)} more to qualify for free shipping!`}
+                        : `Spend ${formatToUSD(50 - subtotal)} more to qualify for free shipping.`}
                 </p>
                 <PriceSummaryContainer>
                     <div>
@@ -116,6 +117,7 @@ const PriceSummaryContainer = styled.div`
 CartPage.propTypes = {
     cart: PropTypes.array.isRequired,
     handleDeleteFromCart: PropTypes.func.isRequired,
+    handleQuantitySelectChange: PropTypes.func.isRequired,
 }
 
 export default CartPage

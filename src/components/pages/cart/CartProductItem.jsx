@@ -6,26 +6,54 @@ import PropTypes from 'prop-types'
 import ButtonIcon from '../../reusables/buttons/ButtonIcon'
 import trashIcon from '../../../assets/icons/trash-2.svg'
 
-const CartProductItem = ({ product, handleDeleteFromCart }) => {
+const CartProductItem = ({
+    product,
+    handleDeleteFromCart,
+    handleQuantitySelectChange,
+}) => {
+    const quantityOptions = Array.from({ length: 10 }, (_, index) => index + 1)
+
     return (
         <StyledCartProductItem>
             <Link to={`/products/${product.id}`}>
                 <img src={product.image} alt={product.title} />
             </Link>
-            <div>
+            <ProductItemInfo>
                 <Link to={`/products/${product.id}`}>
                     <h4>{product.title}</h4>
                 </Link>
                 <p>{formatToUSD(product.price)}</p>
-                <p>Quantity: {product.quantity}</p>
-            </div>
-            <ButtonIcon>
-                <img
-                    src={trashIcon}
-                    alt='trash icon'
-                    onClick={() => {handleDeleteFromCart(product)}}
-                />
-            </ButtonIcon>
+                <QuantitySelectContainer>
+                    <label htmlFor='quantity-select'>Qty:</label>
+                    <select
+                        id='quantity-select'
+                        onChange={(e) => {
+                            handleQuantitySelectChange(e, product)
+                        }}
+                    >
+                        {quantityOptions.map((option, index) => {
+                            return (
+                                <option
+                                    key={index}
+                                    selected={option === product.quantity}
+                                    value={option}
+                                >
+                                    {option}
+                                </option>
+                            )
+                        })}
+                    </select>
+                </QuantitySelectContainer>
+                <ButtonIcon>
+                    <img
+                        src={trashIcon}
+                        alt='trash icon'
+                        onClick={() => {
+                            handleDeleteFromCart(product)
+                        }}
+                    />
+                </ButtonIcon>
+            </ProductItemInfo>
         </StyledCartProductItem>
     )
 }
@@ -39,12 +67,6 @@ const StyledCartProductItem = styled.li`
         cursor: pointer;
     }
 
-    div {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
     img {
         max-width: 96px;
     }
@@ -54,9 +76,21 @@ const StyledCartProductItem = styled.li`
     }
 `
 
+const ProductItemInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+`
+
+const QuantitySelectContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
 CartProductItem.propTypes = {
     product: PropTypes.object.isRequired,
     handleDeleteFromCart: PropTypes.func.isRequired,
+    handleQuantitySelectChange: PropTypes.func.isRequired,
 }
 
 export default CartProductItem
