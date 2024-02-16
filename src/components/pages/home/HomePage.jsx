@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import heroImage from '../../../assets/images/hero-image.jpg'
 import ButtonLink from '../../reusables/buttons/ButtonLink'
 
-const HeroSection = styled.section`
+const HomeSection = styled.section`
     background-image: ${`url(${heroImage})`};
     background-size: cover;
     background-position: top right;
@@ -30,14 +30,14 @@ const HeroSection = styled.section`
 
 const HomePage = () => {
     return (
-        <HeroSection>
-            <h1>
+        <HomeSection data-testid='home-section'>
+            <h1 data-testid='home__hero-title'>
                 <span>Ever</span>ything You Could
                 <br />
                 <span>Ever</span> Ask For
             </h1>
             <ButtonLink to='/products'>Shop Collection</ButtonLink>
-        </HeroSection>
+        </HomeSection>
     )
 }
 
