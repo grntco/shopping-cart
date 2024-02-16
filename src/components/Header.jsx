@@ -8,8 +8,8 @@ const Header = ({ cart }) => {
     return (
         <StyledHeader data-testid='header'>
             <Nav>
-                <Logo />
-                <NavLinks>
+                <Logo data-testid='header__logo'/>
+                <ul>
                     <li>
                         <NavLink to='/products'>Products</NavLink>
                     </li>
@@ -23,7 +23,7 @@ const Header = ({ cart }) => {
                             )}
                         </NavLink>
                     </li>
-                </NavLinks>
+                </ul>
             </Nav>
         </StyledHeader>
     )
@@ -33,7 +33,6 @@ const StyledHeader = styled.header`
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 999;
 `
 
 const Nav = styled.nav`
@@ -42,13 +41,13 @@ const Nav = styled.nav`
     justify-content: space-between;
     padding: 24px 96px 24px 48px;
     border-bottom: 1px solid black;
-`
 
-const NavLinks = styled.ul`
-    display: flex;
-    align-items: center;
-    gap: 48px;
-    list-style: none;
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        list-style: none;
+    }
 `
 
 const NavLink = styled(Link)`

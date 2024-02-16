@@ -2,29 +2,29 @@
 
 exports[`Header > renders header element 1`] = `
 <header
+  class="sc-dmyCSP iQeVsA"
   data-testid="header"
 >
   <nav
-    class="sc-guDLey eHZOjN"
+    class="sc-hLQSwg hSkrVx"
   >
     <a
-      class="sc-beySPh cnwaRZ"
+      class="sc-guDLey dboBSv"
       href="/"
     >
       <img
         alt="cart icon"
+        class="sc-beySPh htjDQV"
         src="/src/assets/icons/shopping-cart.svg"
       />
       <p>
-        CartMart
+        EverCart
       </p>
     </a>
-    <ul
-      class="sc-dmyCSP dfkF"
-    >
+    <ul>
       <li>
         <a
-          class="sc-hLQSwg hIvcwK"
+          class="sc-eDLKkx bZsVqJ"
           href="/products"
         >
           Products
@@ -32,7 +32,7 @@ exports[`Header > renders header element 1`] = `
       </li>
       <li>
         <a
-          class="sc-hLQSwg hIvcwK"
+          class="sc-eDLKkx bZsVqJ"
           data-testid="header__cart-link"
           href="/cart"
         >
