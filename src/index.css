@@ -4,6 +4,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     --font: 'Lato', sans-serif;
+    --primary-txt-color: #000;
+    --secondary-txt-color: #7e7e7e;
+    --primary-bg-color: #fff;
+    --secondary-bg-color: #fafafa;
+    --tertiary-bg-color: #000;
+    --accent-color: #e964b6;
 }
 
 * {
@@ -20,7 +26,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--primary-txt-color);
 }
 
 a:hover {
@@ -39,11 +45,11 @@ h3 {
 
 input {
     font-family: var(--font-family);
-    color: grey;
+    color: var(--secondary-txt-color);
 }
 
 input:focus,
 select:focus {
-    color: black;
-    outline-color: #e964b6;
+    color: var(--primary-txt-color);
+    outline-color: var(--accent-color);
 }

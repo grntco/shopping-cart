@@ -31,7 +31,7 @@ const StyledFooter = styled.footer`
     display: flex;
     justify-content: space-between;
     padding: 48px 96px;
-    background-color: black;
+    background-color: var(--tertiary-bg-color);
 `
 
 const FooterLinks = styled.ul`

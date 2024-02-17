@@ -75,7 +75,7 @@ const ProductMetaData = styled.div`
     gap: 2px;
     text-transform: uppercase;
     font-weight: 900;
-    color: grey;
+    color: #7e7e7e;
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
 `
