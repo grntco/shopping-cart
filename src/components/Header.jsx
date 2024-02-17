@@ -32,7 +32,7 @@ const Header = ({ cart }) => {
 const StyledHeader = styled.header`
     position: sticky;
     top: 0;
-    background-color: white;
+    background-color: var(--primary-bg-color);
     z-index: 999;
 `
 
@@ -72,8 +72,8 @@ const CartItemsNumber = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e964b6;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--tertiary-txt-color);
 
     div {
         margin-left: 1px;

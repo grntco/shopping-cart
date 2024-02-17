@@ -6,9 +6,12 @@
     --font: 'Lato', sans-serif;
     --primary-txt-color: #000;
     --secondary-txt-color: #7e7e7e;
+    --tertiary-txt-color: #fff;
     --primary-bg-color: #fff;
     --secondary-bg-color: #fafafa;
     --tertiary-bg-color: #000;
+    --primary-border-color: #f3f3f3;
+    --secondary-border-color: #7e7e7e;
     --accent-color: #e964b6;
 }
 

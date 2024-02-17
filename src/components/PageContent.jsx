@@ -4,7 +4,7 @@ import ProductsPage from './pages/products/ProductsPage'
 import CartPage from './pages/cart/CartPage'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import SingleProductPage from './pages/singleProduct/singleProductPage'
+import SingleProductPage from './pages/singleProduct/SingleProductPage'
 
 const StyledMain = styled.main`
     flex-grow: 1;
@@ -12,7 +12,12 @@ const StyledMain = styled.main`
     flex-direction: column;
 `
 
-const PageContent = ({ cart, handleAddToCart, handleDeleteFromCart, handleQuantitySelectChange }) => {
+const PageContent = ({
+    cart,
+    handleAddToCart,
+    handleDeleteFromCart,
+    handleQuantitySelectChange,
+}) => {
     const params = useParams()
 
     return (

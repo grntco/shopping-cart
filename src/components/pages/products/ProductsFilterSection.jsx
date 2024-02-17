@@ -87,7 +87,7 @@ const StyledProductsFilterSection = styled.section`
     align-items: center;
     justify-content: center;
     gap: 24px;
-    background-color: #fafafa;
+    background-color: var(--secondary-bg-color);
     border-bottom: 1px solid black;
 `
 

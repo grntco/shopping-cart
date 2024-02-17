@@ -11,8 +11,8 @@ const spin = keyframes`
 `
 
 const Spinner = styled.div`
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #e964b6; /* Pink */
+    border: 8px solid var(--primary-border-color); /* Light grey */
+    border-top: 8px solid var(--accent-color); /* Pink */
     border-radius: 50%;
     width: 96px;
     height: 96px;
@@ -30,7 +30,7 @@ const StyledLoadingPage = styled.section`
     p {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #e964b6;
+        color: var(--accent-color);
     }
 `
 

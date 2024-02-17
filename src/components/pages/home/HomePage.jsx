@@ -21,9 +21,10 @@ const HomeSection = styled.section`
         font-style: italic;
         text-transform: uppercase;
         font-weight: 900;
-        color: white;
+        color: var(--tertiary-txt-color);
+
         span {
-            color: #e964b6;
+            color: var(--accent-color);
         }
     }
 `

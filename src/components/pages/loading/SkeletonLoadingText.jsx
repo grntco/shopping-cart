@@ -2,14 +2,16 @@ import { styled, keyframes } from 'styled-components'
 
 const skeletonLoading = keyframes`
     0% {
-        background-color: hsl(200, 20%, 80%);
+        background-color: var(--secondary-txt-color);
     }
     100% {
-        background-color: hsl(200, 20%, 95%);
+        background-color: var(--secondary-bg-color);
     }
 `
+
 const SkeletonLoadingText = styled.div`
-    background-color: grey;
+    background-color: var(--secondary-txt-color);
+    opacity: 0.6;
     padding: 12px;
     width: 196px;
     border-radius: 12px;
