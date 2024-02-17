@@ -19,40 +19,44 @@ const CartProductItem = ({
                 <img src={product.image} alt={product.title} />
             </Link>
             <ProductItemInfo>
-                <Link to={`/products/${product.id}`}>
-                    <h4>{product.title}</h4>
-                </Link>
-                <p>{formatToUSD(product.price)}</p>
-                <QuantitySelectContainer>
-                    <label htmlFor='quantity-select'>Qty:</label>
-                    <select
-                        id='quantity-select'
-                        onChange={(e) => {
-                            handleQuantitySelectChange(e, product)
-                        }}
-                    >
-                        {quantityOptions.map((option, index) => {
-                            return (
-                                <option
-                                    key={index}
-                                    selected={option === product.quantity}
-                                    value={option}
-                                >
-                                    {option}
-                                </option>
-                            )
-                        })}
-                    </select>
-                </QuantitySelectContainer>
-                <ButtonIcon>
-                    <img
-                        src={trashIcon}
-                        alt='trash icon'
-                        onClick={() => {
-                            handleDeleteFromCart(product)
-                        }}
-                    />
-                </ButtonIcon>
+                <div>
+                    <Link to={`/products/${product.id}`}>
+                        <h4>{product.title}</h4>
+                    </Link>
+                    <p>{formatToUSD(product.price)}</p>
+                </div>
+                <ProductItemButtonsContainer>
+                    <QuantitySelectContainer>
+                        <label htmlFor='quantity-select'>Qty:</label>
+                        <select
+                            id='quantity-select'
+                            onChange={(e) => {
+                                handleQuantitySelectChange(e, product)
+                            }}
+                        >
+                            {quantityOptions.map((option, index) => {
+                                return (
+                                    <option
+                                        key={index}
+                                        selected={option === product.quantity}
+                                        value={option}
+                                    >
+                                        {option}
+                                    </option>
+                                )
+                            })}
+                        </select>
+                    </QuantitySelectContainer>
+                    <ButtonIcon>
+                        <img
+                            src={trashIcon}
+                            alt='trash icon'
+                            onClick={() => {
+                                handleDeleteFromCart(product)
+                            }}
+                        />
+                    </ButtonIcon>
+                </ProductItemButtonsContainer>
             </ProductItemInfo>
         </StyledCartProductItem>
     )
@@ -79,12 +83,19 @@ const StyledCartProductItem = styled.li`
 const ProductItemInfo = styled.div`
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    justify-content: space-between;
+    gap: 24px;
+`
+
+const ProductItemButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
 `
 
 const QuantitySelectContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    gap: 4px;
 `
 
 CartProductItem.propTypes = {

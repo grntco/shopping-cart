@@ -9,6 +9,7 @@ const ButtonIcon = styled.button`
     &:hover {
         cursor: pointer;
         background-color: var(--secondary-bg-color);
+        opacity: 0.8;
     }
 `
 
