@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react'
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
-    // const [selectedSort, setSelectedSort] = useState(true)
 
     useEffect(() => {
         if (data) setProducts(data)
@@ -118,7 +117,7 @@ const ProductsPage = ({ handleAddToCart }) => {
         }
 
         // Sorts the products in the current view, not all the products
-        return setProducts([...products.sort(compareFn)])
+        setProducts([...products.sort(compareFn)])
     }
 }
 

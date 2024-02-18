@@ -65,7 +65,7 @@ const ProductsFilterSection = ({
                     <select id='sort-select' onChange={handleSort}>
                         <option
                             value='id-ascending'
-                            // selected={selected}
+                            selected={true}
                         >
                             Default (by SKU)
                         </option>
