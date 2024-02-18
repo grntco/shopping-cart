@@ -3,6 +3,7 @@ import SkeletonLoadingText from '../loading/SkeletonLoadingText'
 import useData from '../../../hooks/useData'
 import capitalize from '../../../utils/capitalize'
 import PropTypes from 'prop-types'
+// import { useEffect, useState } from 'react'
 
 const ProductsFilterSection = ({
     handleSearchInputChange,
@@ -62,7 +63,17 @@ const ProductsFilterSection = ({
                 <div>
                     <label htmlFor='sort-select'>Sort:</label>
                     <select id='sort-select' onChange={handleSort}>
-                        <option value='title-ascending'>A-Z</option>
+                        <option
+                            value='id-ascending'
+                            // selected={selected}
+                        >
+                            Default (by SKU)
+                        </option>
+                        <option
+                            value='title-ascending'
+                        >
+                            A-Z
+                        </option>
                         <option value='title-descending'>Z-A</option>
                         <option value='price-ascending'>
                             Price (low to high)

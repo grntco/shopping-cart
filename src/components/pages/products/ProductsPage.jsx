@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
+    // const [selectedSort, setSelectedSort] = useState(true)
 
     useEffect(() => {
         if (data) setProducts(data)
@@ -72,8 +73,11 @@ const ProductsPage = ({ handleAddToCart }) => {
             case 'rating-descending':
                 compareFn = ratingDescending
                 break
+            case 'id-ascending':
+                compareFn = idAscending
+                break
             default:
-                compareFn = titleAscending
+                compareFn = idAscending
         }
 
         function titleAscending(prev, next) {
@@ -109,8 +113,12 @@ const ProductsPage = ({ handleAddToCart }) => {
         function ratingDescending(prev, next) {
             return next.rating.rate - prev.rating.rate
         }
+        function idAscending(prev, next) {
+            return prev.id - next.id
+        }
 
-        return setProducts([...data.sort(compareFn)])
+        // Sorts the products in the current view, not all the products
+        return setProducts([...products.sort(compareFn)])
     }
 }
 
