@@ -56,7 +56,6 @@ const ProductsPage = ({ handleAddToCart }) => {
         document.getElementById('sort-select').selectedIndex = 0
         document.getElementById('search-input').value = ''
 
-
         if (newCategory === 'all') {
             setPageTitle('All Products')
             setProducts(data)

@@ -15,7 +15,6 @@ const App = () => {
                 cart={cart}
                 handleAddToCart={handleAddToCart}
                 handleDeleteFromCart={handleDeleteFromCart}
-                handleQuantitySelectChange={handleQuantitySelectChange}
             />
             <Footer />
         </>
@@ -36,11 +35,6 @@ const App = () => {
             (product) => product.title !== currentProduct.title,
         )
         setCart(cartWithoutProduct)
-    }
-
-    function handleQuantitySelectChange(e, currentProduct) {
-        const newQuantity = e.target.value
-        handleAddToCart(currentProduct, newQuantity)
     }
 }
 

@@ -16,7 +16,6 @@ const PageContent = ({
     cart,
     handleAddToCart,
     handleDeleteFromCart,
-    handleQuantitySelectChange,
 }) => {
     const params = useParams()
 
@@ -28,7 +27,6 @@ const PageContent = ({
                 <CartPage
                     cart={cart}
                     handleDeleteFromCart={handleDeleteFromCart}
-                    handleQuantitySelectChange={handleQuantitySelectChange}
                 />
             ) : params.id ? (
                 <SingleProductPage
@@ -46,7 +44,6 @@ PageContent.propTypes = {
     cart: PropTypes.array.isRequired,
     handleAddToCart: PropTypes.func.isRequired,
     handleDeleteFromCart: PropTypes.func.isRequired,
-    handleQuantitySelectChange: PropTypes.func.isRequired,
 }
 
 export default PageContent

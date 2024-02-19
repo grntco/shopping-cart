@@ -9,9 +9,7 @@ import trashIcon from '../../../assets/icons/trash-2.svg'
 const CartProductItem = ({
     product,
     handleDeleteFromCart,
-    handleQuantitySelectChange,
 }) => {
-    const quantityOptions = Array.from({ length: 10 }, (_, index) => index + 1)
 
     return (
         <StyledCartProductItem>
@@ -26,27 +24,7 @@ const CartProductItem = ({
                     <p>{formatToUSD(product.price)}</p>
                 </div>
                 <ProductItemButtonsContainer>
-                    <QuantitySelectContainer>
-                        <label htmlFor='quantity-select'>Qty:</label>
-                        <select
-                            id='quantity-select'
-                            onChange={(e) => {
-                                handleQuantitySelectChange(e, product)
-                            }}
-                        >
-                            {quantityOptions.map((option, index) => {
-                                return (
-                                    <option
-                                        key={index}
-                                        selected={option === product.quantity}
-                                        value={option}
-                                    >
-                                        {option}
-                                    </option>
-                                )
-                            })}
-                        </select>
-                    </QuantitySelectContainer>
+                    <p>Qty: {product.quantity}</p>
                     <ButtonIcon>
                         <img
                             src={trashIcon}
@@ -54,6 +32,7 @@ const CartProductItem = ({
                             onClick={() => {
                                 handleDeleteFromCart(product)
                             }}
+                            title='Delete all of this item'
                         />
                     </ButtonIcon>
                 </ProductItemButtonsContainer>
@@ -93,15 +72,9 @@ const ProductItemButtonsContainer = styled.div`
     gap: 8px;
 `
 
-const QuantitySelectContainer = styled.div`
-    display: flex;
-    gap: 4px;
-`
-
 CartProductItem.propTypes = {
     product: PropTypes.object.isRequired,
     handleDeleteFromCart: PropTypes.func.isRequired,
-    handleQuantitySelectChange: PropTypes.func.isRequired,
 }
 
 export default CartProductItem

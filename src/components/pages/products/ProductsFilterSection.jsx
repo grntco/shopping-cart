@@ -3,7 +3,6 @@ import SkeletonLoadingText from '../loading/SkeletonLoadingText'
 import useData from '../../../hooks/useData'
 import capitalize from '../../../utils/capitalize'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
 const ProductsFilterSection = ({
     pageTitle,
@@ -128,6 +127,7 @@ const ProductsFiltersContainer = styled.div`
 `
 
 ProductsFilterSection.propTypes = {
+    pageTitle: PropTypes.string,
     handleCategoryChange: PropTypes.func,
     handleSearchInputChange: PropTypes.func,
     handleSort: PropTypes.func,
