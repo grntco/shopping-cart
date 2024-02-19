@@ -4,10 +4,14 @@ import ProductsGrid from './ProductsGrid'
 import LoadingPage from '../loading/LoadingPage'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import capitalize from '../../../utils/capitalize'
 
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
+    const [pageTitle, setPageTitle] = useState('All Products')
+    // const [selectedCategory, setSelectedCategory] = useState('all')
+    // const [selectedSort, setSelectedSort] = useState('id-ascending')
 
     useEffect(() => {
         if (data) setProducts(data)
@@ -19,6 +23,7 @@ const ProductsPage = ({ handleAddToCart }) => {
     return (
         <>
             <ProductsFilterSection
+                pageTitle={pageTitle}
                 handleSearchInputChange={handleSearchInputChange}
                 handleCategoryChange={handleCategoryChange}
                 handleSort={handleSort}
@@ -34,6 +39,7 @@ const ProductsPage = ({ handleAddToCart }) => {
         document.getElementById('category-select').selectedIndex = 0
         document.getElementById('sort-select').selectedIndex = 0
 
+        setPageTitle('All Products')
         setProducts(
             data.filter((product) =>
                 product.title
@@ -42,7 +48,6 @@ const ProductsPage = ({ handleAddToCart }) => {
             ),
         )
 
-        // handleCategoryChange({ target: { value: 'all' } })
         handleSort({ target: { value: 'id-ascending' } })
     }
 
@@ -51,9 +56,12 @@ const ProductsPage = ({ handleAddToCart }) => {
         document.getElementById('sort-select').selectedIndex = 0
         document.getElementById('search-input').value = ''
 
+
         if (newCategory === 'all') {
+            setPageTitle('All Products')
             setProducts(data)
         } else {
+            setPageTitle(capitalize(newCategory))
             setProducts(
                 data.filter((product) => product.category === newCategory),
             )
@@ -64,8 +72,6 @@ const ProductsPage = ({ handleAddToCart }) => {
 
     function handleSort(e) {
         const sortMethod = e.target.value
-        console.log(sortMethod)
-
         let compareFn
 
         switch (sortMethod) {

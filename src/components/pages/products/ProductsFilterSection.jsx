@@ -3,9 +3,10 @@ import SkeletonLoadingText from '../loading/SkeletonLoadingText'
 import useData from '../../../hooks/useData'
 import capitalize from '../../../utils/capitalize'
 import PropTypes from 'prop-types'
-// import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const ProductsFilterSection = ({
+    pageTitle,
     handleSearchInputChange,
     handleCategoryChange,
     handleSort,
@@ -33,7 +34,7 @@ const ProductsFilterSection = ({
     return (
         <StyledProductsFilterSection>
             {/* maybe do something with changing the title based on category change */}
-            <h1>The EverCart Products</h1>
+            <h1>{pageTitle}</h1>
             <ProductsFiltersContainer>
                 <div>
                     <label htmlFor='search-input'>Search:</label>
@@ -65,7 +66,6 @@ const ProductsFilterSection = ({
                     <select id='sort-select' onChange={handleSort}>
                         <option
                             value='id-ascending'
-                            selected={true}
                         >
                             Default (by SKU)
                         </option>
