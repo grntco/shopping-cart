@@ -31,6 +31,9 @@ const ProductsPage = ({ handleAddToCart }) => {
     )
 
     function handleSearchInputChange(e) {
+        document.getElementById('category-select').selectedIndex = 0
+        document.getElementById('sort-select').selectedIndex = 0
+
         setProducts(
             data.filter((product) =>
                 product.title
@@ -38,10 +41,15 @@ const ProductsPage = ({ handleAddToCart }) => {
                     .includes(e.target.value.toLowerCase()),
             ),
         )
+
+        // handleCategoryChange({ target: { value: 'all' } })
+        handleSort({ target: { value: 'id-ascending' } })
     }
 
     function handleCategoryChange(e) {
         const newCategory = e.target.value
+        document.getElementById('sort-select').selectedIndex = 0
+        document.getElementById('search-input').value = ''
 
         if (newCategory === 'all') {
             setProducts(data)
@@ -50,10 +58,14 @@ const ProductsPage = ({ handleAddToCart }) => {
                 data.filter((product) => product.category === newCategory),
             )
         }
+
+        handleSort({ target: { value: 'id-ascending' } })
     }
 
     function handleSort(e) {
         const sortMethod = e.target.value
+        console.log(sortMethod)
+
         let compareFn
 
         switch (sortMethod) {
@@ -116,8 +128,7 @@ const ProductsPage = ({ handleAddToCart }) => {
             return prev.id - next.id
         }
 
-        // Sorts the products in the current view, not all the products
-        setProducts([...products.sort(compareFn)])
+        setProducts((prevProducts) => [...prevProducts].sort(compareFn))
     }
 }
 
