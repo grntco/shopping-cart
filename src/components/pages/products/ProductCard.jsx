@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import starIcon from '../../../assets/icons/star.png'
 import Icon from '../../reusables/Icon'
-import ProductQuantitySelector from '../../reusables/ProductQuantitySelector'
+import ProductQuantitySelector from './ProductQuantitySelector'
 import formatToUSD from '../../../utils/formatToUSD'
 
 const ProductCard = ({ product, handleAddToCart }) => {

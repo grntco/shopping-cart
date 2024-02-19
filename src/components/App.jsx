@@ -19,11 +19,15 @@ const App = () => {
         </>
     )
 
-    function handleAddToCart(product, quantity) {
+    function handleAddToCart(newProduct, quantity) {
+        // const numAlreadyInCart = cart.filter(
+        //     (product) => (product.title = newProduct.title),
+        // ).length
+
         if (quantity > 0) {
             let productsQueue = []
             for (let i = quantity; i > 0; i--) {
-                productsQueue.push(product)
+                productsQueue.push(newProduct)
             }
             setCart([...cart, ...productsQueue])
         }

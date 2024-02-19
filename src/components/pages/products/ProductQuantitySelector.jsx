@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from './buttons/Button'
+import Button from '../../reusables/buttons/Button'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
@@ -14,6 +14,9 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
                     type='number'
                     value={quantity}
                     onChange={handleInputChange}
+                    onBlur={(e) => {
+                        if (e.target.value === '') setQuantity(1)
+                    }}
                 />
                 <Button onClick={handleIncrement}>+</Button>
             </QuantityInputContainer>
@@ -28,7 +31,7 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     )
 
     function handleIncrement() {
-        setQuantity(quantity + 1)
+        if (quantity < 10) setQuantity(quantity + 1)
     }
 
     function handleDecrement() {
@@ -36,7 +39,14 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     }
 
     function handleInputChange(e) {
-        setQuantity(parseInt(e.target.value))
+        const newValue = e.target.value
+        if (newValue <= 10 && newValue >= 0) {
+            setQuantity(parseInt(newValue))
+        } else if (newValue > 10 || newValue < 0) {
+            setQuantity(1)
+        } else {
+            setQuantity('')
+        }
     }
 }
 

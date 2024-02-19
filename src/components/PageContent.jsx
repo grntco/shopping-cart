@@ -4,7 +4,7 @@ import ProductsPage from './pages/products/ProductsPage'
 import CartPage from './pages/cart/CartPage'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import SingleProductPage from './pages/singleProduct/SingleProductPage'
+import SingleProductPage from './pages/products/SingleProductPage'
 
 const StyledMain = styled.main`
     flex-grow: 1;

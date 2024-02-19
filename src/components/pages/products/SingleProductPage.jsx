@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import useData from '../../../hooks/useData'
 import LoadingPage from '../loading/LoadingPage'
-import ProductQuantitySelector from '../../reusables/ProductQuantitySelector'
+import ProductQuantitySelector from './ProductQuantitySelector'
 import formatToUSD from '../../../utils/formatToUSD'
 import PropTypes from 'prop-types'
 
