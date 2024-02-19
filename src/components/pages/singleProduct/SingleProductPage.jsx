@@ -91,7 +91,7 @@ const ProductPrimaryInfo = styled.div`
 `
 
 SingleProductPage.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     handleAddToCart: PropTypes.func.isRequired,
 }
 

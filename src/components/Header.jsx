@@ -81,7 +81,7 @@ const CartItemsNumber = styled.div`
 `
 
 Header.propTypes = {
-    cart: PropTypes.object,
+    cart: PropTypes.array,
 }
 
 export default Header
