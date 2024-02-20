@@ -11,16 +11,17 @@ const ProductsFilterSection = ({
     handleSort,
 }) => {
     const { data, error, loading } = useData('/products/categories')
+    console.log(data);
 
     if (error)
         return (
-            <StyledProductsFilterSection>
+            <StyledProductsFilterSection data-testid='products-filter-section'>
                 <p>Error!</p>
             </StyledProductsFilterSection>
         )
     if (loading)
         return (
-            <StyledProductsFilterSection>
+            <StyledProductsFilterSection data-testid='products-filter-section'>
                 <SkeletonLoadingText />
                 <ProductsFiltersContainer>
                     <SkeletonLoadingText />
@@ -31,7 +32,7 @@ const ProductsFilterSection = ({
         )
 
     return (
-        <StyledProductsFilterSection>
+        <StyledProductsFilterSection data-testid='products-filter-section'>
             {/* maybe do something with changing the title based on category change */}
             <h1>{pageTitle}</h1>
             <ProductsFiltersContainer>
@@ -63,16 +64,8 @@ const ProductsFilterSection = ({
                 <div>
                     <label htmlFor='sort-select'>Sort:</label>
                     <select id='sort-select' onChange={handleSort}>
-                        <option
-                            value='id-ascending'
-                        >
-                            Default (by SKU)
-                        </option>
-                        <option
-                            value='title-ascending'
-                        >
-                            A-Z
-                        </option>
+                        <option value='id-ascending'>Default (by SKU)</option>
+                        <option value='title-ascending'>A-Z</option>
                         <option value='title-descending'>Z-A</option>
                         <option value='price-ascending'>
                             Price (low to high)
