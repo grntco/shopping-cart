@@ -20,6 +20,8 @@ const ProductsPage = ({ handleAddToCart }) => {
     if (error) return <p>An error occurred. Please check back later.</p>
     if (loading) return <LoadingPage />
 
+
+    console.log(data)
     return (
         <>
             <ProductsFilterSection
