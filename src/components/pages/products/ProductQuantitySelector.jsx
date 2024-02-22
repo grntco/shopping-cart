@@ -9,7 +9,7 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     return (
         <StyledQuantitySelector data-testid='product-quantity-selector'>
             <QuantityInputContainer>
-                <Button onClick={handleDecrement}>–</Button>
+                <Button onClick={handleDecrement} data-testid='product-quantity__decrement-btn'>–</Button>
                 <input
                     type='number'
                     value={quantity}
@@ -17,8 +17,9 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
                     onBlur={(e) => {
                         if (e.target.value === '') setQuantity(1)
                     }}
+                    data-testid='product-quantity__number-input'
                 />
-                <Button onClick={handleIncrement}>+</Button>
+                <Button onClick={handleIncrement} data-testid='product-quantity__increment-btn'>+</Button>
             </QuantityInputContainer>
             <Button
                 onClick={() => {

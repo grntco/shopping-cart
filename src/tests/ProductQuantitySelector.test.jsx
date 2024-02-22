@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import ProductQuantitySelector from '../components/pages/products/ProductQuantitySelector'
 import { BrowserRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
@@ -33,5 +33,88 @@ describe('Product Quantity Selector test', () => {
         expect(
             screen.getByTestId('product-quantity-selector'),
         ).toMatchSnapshot()
+    })
+
+    it('Increment button adds one to the input number value', async () => {
+        const user = userEvent.setup()
+        render(
+            <ProductQuantitySelector
+                product={mockProduct}
+                handleAddToCart={() => {}}
+            />,
+            { wrapper: BrowserRouter },
+        )
+        const incrementBtn = screen.getByTestId(
+            'product-quantity__increment-btn',
+        )
+        const numberInput = screen.getByTestId('product-quantity__number-input')
+
+        await user.click(incrementBtn)
+
+        expect(numberInput.value).toBe('2')
+    })
+
+    it('Increment button can only add up to 10', async () => {
+        const user = userEvent.setup()
+        render(
+            <ProductQuantitySelector
+                product={mockProduct}
+                handleAddToCart={() => {}}
+            />,
+            { wrapper: BrowserRouter },
+        )
+        const incrementBtn = screen.getByTestId(
+            'product-quantity__increment-btn',
+        )
+        const numberInput = screen.getByTestId('product-quantity__number-input')
+
+        // click the button ten times, with a starting value of 1
+        for (let i = 0; i < 10; i++) {
+            await user.click(incrementBtn)
+        }
+
+        expect(numberInput.value).toBe('10')
+    })
+
+    it('Decrement button can not subtract below 1', async () => {
+        const user = userEvent.setup()
+        render(
+            <ProductQuantitySelector
+                product={mockProduct}
+                handleAddToCart={() => {}}
+            />,
+            { wrapper: BrowserRouter },
+        )
+        const decrementBtn = screen.getByTestId(
+            'product-quantity__decrement-btn',
+        )
+        const numberInput = screen.getByTestId('product-quantity__number-input')
+
+        await user.click(decrementBtn)
+
+        expect(numberInput.value).toBe('1')
+    })
+
+    it('Decrement button can not subtract below 1', async () => {
+        const user = userEvent.setup()
+        render(
+            <ProductQuantitySelector
+                product={mockProduct}
+                handleAddToCart={() => {}}
+            />,
+            { wrapper: BrowserRouter },
+        )
+        const incrementBtn = screen.getByTestId(
+            'product-quantity__increment-btn',
+        )
+        const decrementBtn = screen.getByTestId(
+            'product-quantity__decrement-btn',
+        )
+        const numberInput = screen.getByTestId('product-quantity__number-input')
+
+        await user.dblClick(incrementBtn)
+        await user.click(decrementBtn)
+
+        expect(numberInput.value).toBe('2')
     })
 })

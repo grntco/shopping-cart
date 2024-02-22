@@ -10,15 +10,18 @@ exports[`Product Quantity Selector test > Product Quantity Selector renders corr
   >
     <button
       class="sc-beySPh gepDOA"
+      data-testid="product-quantity__decrement-btn"
     >
       –
     </button>
     <input
+      data-testid="product-quantity__number-input"
       type="number"
       value="1"
     />
     <button
       class="sc-beySPh gepDOA"
+      data-testid="product-quantity__increment-btn"
     >
       +
     </button>
