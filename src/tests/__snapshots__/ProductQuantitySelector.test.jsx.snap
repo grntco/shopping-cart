@@ -28,6 +28,7 @@ exports[`Product Quantity Selector test > Product Quantity Selector renders corr
   </div>
   <button
     class="sc-beySPh gepDOA"
+    data-testid="product-quantity__add-to-cart-btn"
   >
     Add to Cart
   </button>

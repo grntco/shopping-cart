@@ -9,7 +9,12 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     return (
         <StyledQuantitySelector data-testid='product-quantity-selector'>
             <QuantityInputContainer>
-                <Button onClick={handleDecrement} data-testid='product-quantity__decrement-btn'>–</Button>
+                <Button
+                    onClick={handleDecrement}
+                    data-testid='product-quantity__decrement-btn'
+                >
+                    –
+                </Button>
                 <input
                     type='number'
                     value={quantity}
@@ -19,12 +24,18 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
                     }}
                     data-testid='product-quantity__number-input'
                 />
-                <Button onClick={handleIncrement} data-testid='product-quantity__increment-btn'>+</Button>
+                <Button
+                    onClick={handleIncrement}
+                    data-testid='product-quantity__increment-btn'
+                >
+                    +
+                </Button>
             </QuantityInputContainer>
             <Button
                 onClick={() => {
                     handleAddToCart(product, quantity)
                 }}
+                data-testid='product-quantity__add-to-cart-btn'
             >
                 Add to Cart
             </Button>

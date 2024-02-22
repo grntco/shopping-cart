@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import ProductQuantitySelector from '../components/pages/products/ProductQuantitySelector'
 import { BrowserRouter } from 'react-router-dom'
@@ -116,5 +116,22 @@ describe('Product Quantity Selector test', () => {
         await user.click(decrementBtn)
 
         expect(numberInput.value).toBe('2')
+    })
+
+    it('handleAddToCart is called on Add to Cart btn click', async () => {
+        const user = userEvent.setup()
+        const handleAddToCartMock = vi.fn()
+        render(
+            <ProductQuantitySelector
+                product={mockProduct}
+                handleAddToCart={handleAddToCartMock}
+            />,
+            { wrapper: BrowserRouter },
+        )
+        const addToCartBtn = screen.getByTestId('product-quantity__add-to-cart-btn')
+
+        await user.click(addToCartBtn)
+
+        expect(handleAddToCartMock).toHaveBeenCalled();
     })
 })
