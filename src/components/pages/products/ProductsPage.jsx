@@ -14,14 +14,14 @@ const ProductsPage = ({ handleAddToCart }) => {
     // const [selectedSort, setSelectedSort] = useState('id-ascending')
 
     useEffect(() => {
-        if (data) setProducts(data)
+        if (data && data.length > 0) {
+            setProducts(data)
+        }
     }, [data])
 
     if (error) return <p>An error occurred. Please check back later.</p>
     if (loading) return <LoadingPage />
 
-
-    console.log(data)
     return (
         <>
             <ProductsFilterSection

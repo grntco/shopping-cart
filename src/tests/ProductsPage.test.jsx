@@ -59,7 +59,7 @@ describe('Products Filter Section Test', () => {
     it('Products Page renders ProductsGrid', async () => {
         render(<ProductsPage />, { wrapper: BrowserRouter })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(
                 screen.getByTestId('products-filter-section'),
             ).toBeInTheDocument()

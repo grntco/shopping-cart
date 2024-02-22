@@ -10,7 +10,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
     const productPagePath = `/products/${product.id}`
 
     return (
-        <StyledCard>
+        <StyledCard data-testid='product-card'>
             <CardImageLink to={productPagePath}>
                 <img
                     src={product.image}
