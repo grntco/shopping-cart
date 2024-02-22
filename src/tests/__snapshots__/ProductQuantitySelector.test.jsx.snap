@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Product Quantity Selector test > Product Quantity Selector renders correctly 1`] = `
+<div
+  class="sc-guDLey hGbZVM"
+  data-testid="product-quantity-selector"
+>
+  <div
+    class="sc-dmyCSP kIuZzL"
+  >
+    <button
+      class="sc-beySPh gepDOA"
+    >
+      –
+    </button>
+    <input
+      type="number"
+      value="1"
+    />
+    <button
+      class="sc-beySPh gepDOA"
+    >
+      +
+    </button>
+  </div>
+  <button
+    class="sc-beySPh gepDOA"
+  >
+    Add to Cart
+  </button>
+</div>
+`;

@@ -7,7 +7,7 @@ const ProductQuantitySelector = ({ product, handleAddToCart }) => {
     const [quantity, setQuantity] = useState(1)
 
     return (
-        <StyledQuantitySelector>
+        <StyledQuantitySelector data-testid='product-quantity-selector'>
             <QuantityInputContainer>
                 <Button onClick={handleDecrement}>–</Button>
                 <input
