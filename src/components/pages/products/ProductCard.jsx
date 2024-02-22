@@ -11,7 +11,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
 
     return (
         <StyledCard data-testid='product-card'>
-            <CardImageLink to={productPagePath}>
+            <CardImageLink to={productPagePath} data-testid='product-card__image-link'>
                 <img
                     src={product.image}
                     alt={product.title}
@@ -20,7 +20,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
             </CardImageLink>
             <CardInfoContainer>
                 <CardInfoSection>
-                    <Link to={productPagePath}>
+                    <Link to={productPagePath} data-testid='product-card__title-link'>
                         <h4>{product.title}</h4>
                     </Link>
                     <CardInfoRating>

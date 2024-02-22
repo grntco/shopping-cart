@@ -7,6 +7,7 @@ exports[`Product Card test > Product card renders correctly 1`] = `
 >
   <a
     class="sc-jTQCzO imamgb"
+    data-testid="product-card__image-link"
     href="/products/1"
   >
     <img
@@ -22,6 +23,7 @@ exports[`Product Card test > Product card renders correctly 1`] = `
       class="sc-iBdnpw jphUIh"
     >
       <a
+        data-testid="product-card__title-link"
         href="/products/1"
       >
         <h4>

@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 // import Header from '../components/Header'
 // import Router from '../components/Router'
 // import userEvent from '@testing-library/user-event'
 // import App from '../components/App'
 import ProductCard from '../components/pages/products/ProductCard'
 import { BrowserRouter } from 'react-router-dom'
+import userEvent from '@testing-library/user-event'
 
 const mockProduct = {
     id: 1,
@@ -29,5 +30,37 @@ describe('Product Card test', () => {
         )
         expect(screen.getByTestId('product-card')).toBeInTheDocument()
         expect(screen.getByTestId('product-card')).toMatchSnapshot()
+    })
+
+    it('Product card title link takes user to single product page', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <ProductCard product={mockProduct} handleAddToCart={() => {}} />,
+            { wrapper: BrowserRouter },
+        )
+
+        const productTitleLink = screen.getByTestId('product-card__title-link')
+        await user.click(productTitleLink)
+
+        await waitFor(() => {
+            expect(window.location.pathname).toBe(`/products/${mockProduct.id}`)
+        })
+    })
+
+    it('Product card image link takes user to single product page', async () => {
+        const user = userEvent.setup()
+
+        render(
+            <ProductCard product={mockProduct} handleAddToCart={() => {}} />,
+            { wrapper: BrowserRouter },
+        )
+
+        const productImageLink = screen.getByTestId('product-card__image-link')
+        await user.click(productImageLink)
+
+        await waitFor(() => {
+            expect(window.location.pathname).toBe(`/products/${mockProduct.id}`)
+        })
     })
 })
