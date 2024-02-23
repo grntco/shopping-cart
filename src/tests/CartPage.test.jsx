@@ -33,4 +33,23 @@ describe('Cart Page test', () => {
             }),
         ).toBeInTheDocument()
     })
+
+    it('renders correctly with a full cart', () => {
+        render(<CartPage cart={mockCart} handleDeleteFromCart={() => {}} />, {
+            wrapper: BrowserRouter,
+        })
+        expect(screen.getByTestId('cart-page')).toMatchSnapshot()
+        expect(
+            screen.getByRole('heading', {
+                level: 2,
+                name: 'Your Cart',
+            }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByRole('heading', {
+                level: 2,
+                name: 'Summary',
+            }),
+        ).toBeInTheDocument()
+    })
 })

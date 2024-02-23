@@ -1,5 +1,117 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Cart Page test > renders correctly with a full cart 1`] = `
+<section
+  class="sc-gLLuof eenBgs"
+  data-testid="cart-page"
+>
+  <div
+    class="sc-iBdnpw glbRni"
+  >
+    <h2>
+      Your Cart
+    </h2>
+    <ul
+      class="sc-fsYfdN jLwFgZ"
+    >
+      <li
+        class="sc-dmyCSP boPveX"
+      >
+        <a
+          href="/products/1"
+        >
+          <img
+            alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          />
+        </a>
+        <div
+          class="sc-hLQSwg ftDPRI"
+        >
+          <div>
+            <a
+              href="/products/1"
+            >
+              <h4>
+                Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+              </h4>
+            </a>
+            <p>
+              $109.95
+            </p>
+          </div>
+          <div
+            class="sc-eDLKkx fChlpz"
+          >
+            <p>
+              Qty: 
+              1
+            </p>
+            <button
+              class="sc-guDLey KDEhA"
+            >
+              <img
+                alt="trash icon"
+                src="/src/assets/icons/trash-2.svg"
+                title="Delete all of this item"
+              />
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="sc-iBdnpw glbRni"
+  >
+    <h2>
+      Summary
+    </h2>
+    <p>
+      Woohoo! You qualify for free shipping!
+    </p>
+    <div
+      class="sc-qZrbh dFjnbG"
+    >
+      <div>
+        <p>
+          Subtotal
+        </p>
+        <p>
+          $109.95
+        </p>
+      </div>
+      <div>
+        <p>
+          Free Shipping
+        </p>
+        <p>
+          $0.00
+        </p>
+      </div>
+      <div>
+        <p>
+          Total
+        </p>
+        <p>
+          $109.95
+        </p>
+      </div>
+    </div>
+    <button
+      class="sc-beySPh gepDOA"
+    >
+      <img
+        alt="lock icon"
+        color="white"
+        src="/src/assets/icons/lock.svg"
+      />
+      Checkout Securely
+    </button>
+  </div>
+</section>
+`;
+
 exports[`Cart Page test > renders correctly with an empty cart 1`] = `
 <section
   class="sc-jTQCzO izRpYK"
