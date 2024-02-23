@@ -6,6 +6,7 @@ exports[`Cart Product Item test > renders correctly 1`] = `
   data-testid="cart-product-item"
 >
   <a
+    data-testid="cart-product-item__image-link"
     href="/products/1"
   >
     <img
@@ -18,6 +19,7 @@ exports[`Cart Product Item test > renders correctly 1`] = `
   >
     <div>
       <a
+        data-testid="cart-product-item__title-link"
         href="/products/1"
       >
         <h4>
@@ -31,14 +33,18 @@ exports[`Cart Product Item test > renders correctly 1`] = `
     <div
       class="sc-hLQSwg gYnMBA"
     >
-      <p>
+      <p
+        data-testid="cart-product-item__quantity"
+      >
         Qty: 
+        1
       </p>
       <button
         class="sc-beySPh AktPX"
       >
         <img
           alt="trash icon"
+          data-testid="cart-product-item__trash-btn"
           src="/src/assets/icons/trash-2.svg"
           title="Delete all of this item"
         />
