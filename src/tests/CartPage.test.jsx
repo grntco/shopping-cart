@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest'
+/* eslint-disable react/prop-types */
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
@@ -19,6 +20,17 @@ const mockCart = [
         },
     },
 ]
+
+vi.mock('../components/pages/cart/CartProductItem.jsx', () => ({
+    default: ({ product, handleDeleteFromCart }) => {
+        return (
+            <div data-testid='cart-product-item-mock'>
+                <h4>{product.title}</h4>
+                <button onClick={handleDeleteFromCart}></button>
+            </div>
+        )
+    },
+}))
 
 describe('Cart Page test', () => {
     it('renders correctly with an empty cart', () => {
@@ -51,5 +63,13 @@ describe('Cart Page test', () => {
                 name: 'Summary',
             }),
         ).toBeInTheDocument()
+    })
+
+    it('renders Cart Product Item', () => {
+        render(<CartPage cart={mockCart} handleDeleteFromCart={() => {}} />, {
+            wrapper: BrowserRouter,
+        })
+
+        expect(screen.getByTestId('cart-product-item-mock')).toBeInTheDocument()
     })
 })

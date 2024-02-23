@@ -2,67 +2,30 @@
 
 exports[`Cart Page test > renders correctly with a full cart 1`] = `
 <section
-  class="sc-gLLuof eenBgs"
+  class="sc-dmyCSP jeNyzD"
   data-testid="cart-page"
 >
   <div
-    class="sc-iBdnpw glbRni"
+    class="sc-hLQSwg fKaRla"
   >
     <h2>
       Your Cart
     </h2>
     <ul
-      class="sc-fsYfdN jLwFgZ"
+      class="sc-eDLKkx buiyLQ"
     >
-      <li
-        class="sc-dmyCSP boPveX"
+      <div
+        data-testid="cart-product-item-mock"
       >
-        <a
-          href="/products/1"
-        >
-          <img
-            alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-          />
-        </a>
-        <div
-          class="sc-hLQSwg ftDPRI"
-        >
-          <div>
-            <a
-              href="/products/1"
-            >
-              <h4>
-                Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
-              </h4>
-            </a>
-            <p>
-              $109.95
-            </p>
-          </div>
-          <div
-            class="sc-eDLKkx fChlpz"
-          >
-            <p>
-              Qty: 
-              1
-            </p>
-            <button
-              class="sc-guDLey KDEhA"
-            >
-              <img
-                alt="trash icon"
-                src="/src/assets/icons/trash-2.svg"
-                title="Delete all of this item"
-              />
-            </button>
-          </div>
-        </div>
-      </li>
+        <h4>
+          Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+        </h4>
+        <button />
+      </div>
     </ul>
   </div>
   <div
-    class="sc-iBdnpw glbRni"
+    class="sc-hLQSwg fKaRla"
   >
     <h2>
       Summary
@@ -71,7 +34,7 @@ exports[`Cart Page test > renders correctly with a full cart 1`] = `
       Woohoo! You qualify for free shipping!
     </p>
     <div
-      class="sc-qZrbh dFjnbG"
+      class="sc-jTQCzO ieSRxs"
     >
       <div>
         <p>
@@ -114,7 +77,7 @@ exports[`Cart Page test > renders correctly with a full cart 1`] = `
 
 exports[`Cart Page test > renders correctly with an empty cart 1`] = `
 <section
-  class="sc-jTQCzO izRpYK"
+  class="sc-guDLey eVLQBN"
   data-testid="empty-cart-page"
 >
   <h2>
