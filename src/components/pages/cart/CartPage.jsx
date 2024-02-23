@@ -14,14 +14,14 @@ const CartPage = ({ cart, handleDeleteFromCart }) => {
 
     if (cart.length === 0)
         return (
-            <EmptyCartPage>
+            <EmptyCartPage data-testid='empty-cart-page'>
                 <h2>Your Cart is Empty</h2>
                 Add products to your cart to see them appear here!
             </EmptyCartPage>
         )
 
     return (
-        <StyledCartPage>
+        <StyledCartPage data-testid='cart-page'>
             <CartPageColumn>
                 <h2>Your Cart</h2>
                 <CartContainer>

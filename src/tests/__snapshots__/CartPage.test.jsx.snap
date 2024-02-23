@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Cart Page test > renders correctly with an empty cart 1`] = `
+<section
+  class="sc-jTQCzO izRpYK"
+  data-testid="empty-cart-page"
+>
+  <h2>
+    Your Cart is Empty
+  </h2>
+  Add products to your cart to see them appear here!
+</section>
+`;
