@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
 import CartPage from '../components/pages/cart/CartPage'
 
 const mockCart = [

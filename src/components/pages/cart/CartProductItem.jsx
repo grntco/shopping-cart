@@ -12,7 +12,7 @@ const CartProductItem = ({
 }) => {
 
     return (
-        <StyledCartProductItem>
+        <StyledCartProductItem data-testid='cart-product-item'>
             <Link to={`/products/${product.id}`}>
                 <img src={product.image} alt={product.title} />
             </Link>
