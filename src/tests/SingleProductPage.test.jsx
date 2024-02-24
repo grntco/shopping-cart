@@ -23,7 +23,7 @@ const mockProduct = {
     },
 }
 
-describe('SingleProductPage', () => {
+describe('SingleProductPage test', () => {
     it('renders error', async () => {
         useData.mockImplementation(() => {
             return { data: null, error: true, loading: false }

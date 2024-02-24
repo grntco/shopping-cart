@@ -11,18 +11,17 @@ const ProductsFilterSection = ({
     handleSort,
 }) => {
     const { data, error, loading } = useData('/products/categories')
-    console.log(data);
 
     if (error)
         return (
-            <StyledProductsFilterSection data-testid='products-filter-section'>
-                <p>Error!</p>
+            <StyledProductsFilterSection>
+                <p>An error occurred. Please check back later.</p>
             </StyledProductsFilterSection>
         )
     if (loading)
         return (
-            <StyledProductsFilterSection data-testid='products-filter-section'>
-                <SkeletonLoadingText />
+            <StyledProductsFilterSection>
+                <SkeletonLoadingText data-testid='skeleton-loading-text' />
                 <ProductsFiltersContainer>
                     <SkeletonLoadingText />
                     <SkeletonLoadingText />
