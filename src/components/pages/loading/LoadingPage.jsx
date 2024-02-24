@@ -36,7 +36,7 @@ const StyledLoadingPage = styled.section`
 
 const LoadingPage = () => {
     return (
-        <StyledLoadingPage>
+        <StyledLoadingPage data-testid='loading-page'>
             <p>Loading...</p>
             <Spinner />
         </StyledLoadingPage>

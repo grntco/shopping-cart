@@ -12,7 +12,7 @@ const SingleProductPage = ({ id, handleAddToCart }) => {
     if (loading) return <LoadingPage />
 
     return (
-        <StyledSingleProductPage>
+        <StyledSingleProductPage data-testid='single-product-page'>
             <SingleProductContainer>
                 <ProductImageWrapper>
                     <img src={data.image} alt={data.title} />
@@ -23,7 +23,7 @@ const SingleProductPage = ({ id, handleAddToCart }) => {
                         <div>Category: {data.category}</div>
                     </ProductMetaData>
                     <ProductPrimaryInfo>
-                        <h1>{data.title}</h1>
+                        <h1 data-testid='single-product-page__product-title'>{data.title}</h1>
                         <div>{formatToUSD(data.price)}</div>
                     </ProductPrimaryInfo>
                     <p>{data.description}</p>
