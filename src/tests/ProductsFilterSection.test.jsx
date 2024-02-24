@@ -3,6 +3,7 @@ import { act } from 'react-dom/test-utils'
 import { render, screen } from '@testing-library/react'
 import useData from '../hooks/useData'
 import ProductsFilterSection from '../components/pages/products/ProductsFilterSection'
+import userEvent from '@testing-library/user-event'
 
 vi.mock('../hooks/useData', () => ({
     __esModule: true,
@@ -56,5 +57,53 @@ describe('Products Filter Section test', () => {
             screen.getByTestId('products-filter-section'),
         ).toBeInTheDocument()
         expect(screen.getByTestId('products-filter-section')).toMatchSnapshot()
+    })
+    
+    it('changing category calls handleCategoryChange', async () => {
+        const user = userEvent.setup()
+        const handleCategoryChangeMock = vi.fn()
+        useData.mockImplementation(() => {
+            return { data: mockCategories, error: false, loading: false }
+        })
+
+        act(() => {
+            render(<ProductsFilterSection handleCategoryChange={handleCategoryChangeMock}/>)
+        })
+
+        await user.selectOptions(screen.getByLabelText(/category:/i), 'jewelery')
+
+        expect(handleCategoryChangeMock).toHaveBeenCalled()
+    })
+
+    it('changing sort calls handleSort', async () => {
+        const user = userEvent.setup()
+        const handleSortMock = vi.fn()
+        useData.mockImplementation(() => {
+            return { data: mockCategories, error: false, loading: false }
+        })
+
+        act(() => {
+            render(<ProductsFilterSection handleSort={handleSortMock}/>)
+        })
+
+        await user.selectOptions(screen.getByLabelText(/sort:/i), 'A-Z')
+
+        expect(handleSortMock).toHaveBeenCalled()
+    })
+
+    it('searching for a product calls handleSearchInputChange', async () => {
+        const user = userEvent.setup()
+        const handleSearchInputChangeMock = vi.fn()
+        useData.mockImplementation(() => {
+            return { data: mockCategories, error: false, loading: false }
+        })
+
+        act(() => {
+            render(<ProductsFilterSection handleSearchInputChange={handleSearchInputChangeMock}/>)
+        })
+
+        await user.type(screen.getByLabelText(/search:/i), 't-shirt')
+
+        expect(handleSearchInputChangeMock).toHaveBeenCalled()
     })
 })
