@@ -2,15 +2,15 @@
 
 exports[`Products Grid test > renders correctly 1`] = `
 <section
-  class="sc-irLvIq kBuGsJ"
+  class="sc-qZrbh gFWowj"
   data-testid="products-grid"
 >
   <div
-    class="sc-iBdnpw hPNDOm"
+    class="sc-eDLKkx ceMjzl"
     data-testid="product-card"
   >
     <a
-      class="sc-fsYfdN kjHyW"
+      class="sc-jTQCzO imamgb"
       data-testid="product-card__image-link"
       href="/products/1"
     >
@@ -21,10 +21,10 @@ exports[`Products Grid test > renders correctly 1`] = `
       />
     </a>
     <div
-      class="sc-qZrbh eMJUVW"
+      class="sc-gLLuof kTfTWK"
     >
       <div
-        class="sc-jsEeTM fcyBfv"
+        class="sc-iBdnpw jphUIh"
       >
         <a
           data-testid="product-card__title-link"
@@ -35,11 +35,11 @@ exports[`Products Grid test > renders correctly 1`] = `
           </h4>
         </a>
         <div
-          class="sc-kFCroH eILygP"
+          class="sc-fsYfdN cwoSHM"
         >
           <img
             alt="star icon"
-            class="sc-hLQSwg tgiye"
+            class="sc-beySPh htjDQV"
             src="/src/assets/icons/star.png"
           />
           <p>
@@ -51,14 +51,14 @@ exports[`Products Grid test > renders correctly 1`] = `
         $109.95
       </p>
       <div
-        class="sc-jTQCzO gUCFsf"
+        class="sc-dmyCSP gUwTfa"
         data-testid="product-quantity-selector"
       >
         <div
-          class="sc-gLLuof jmFZMA"
+          class="sc-hLQSwg tApZJ"
         >
           <button
-            class="sc-eDLKkx gMZQfM"
+            class="sc-guDLey hYdscr"
             data-testid="product-quantity__decrement-btn"
           >
             –
@@ -69,14 +69,14 @@ exports[`Products Grid test > renders correctly 1`] = `
             value="1"
           />
           <button
-            class="sc-eDLKkx gMZQfM"
+            class="sc-guDLey hYdscr"
             data-testid="product-quantity__increment-btn"
           >
             +
           </button>
         </div>
         <button
-          class="sc-eDLKkx gMZQfM"
+          class="sc-guDLey hYdscr"
           data-testid="product-quantity__add-to-cart-btn"
         >
           Add to Cart

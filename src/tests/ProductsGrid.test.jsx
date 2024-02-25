@@ -1,16 +1,7 @@
-import { describe, it, expect, vi } from 'vitest'
-import { act } from 'react-dom/test-utils'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import useData from '../hooks/useData'
-import ProductsFilterSection from '../components/pages/products/ProductsFilterSection'
-import userEvent from '@testing-library/user-event'
 import ProductsGrid from '../components/pages/products/ProductsGrid'
 import { BrowserRouter } from 'react-router-dom'
-
-// vi.mock('../hooks/useData', () => ({
-//     __esModule: true,
-//     default: vi.fn(),
-// }))
 
 const mockProducts = [
     {
@@ -36,5 +27,10 @@ describe('Products Grid test', () => {
         )
         expect(screen.getByTestId('products-grid')).toBeInTheDocument()
         expect(screen.getByTestId('products-grid')).toMatchSnapshot()
+        expect(
+            screen.getByText(
+                'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+            ),
+        ).toBeInTheDocument()
     })
 })
