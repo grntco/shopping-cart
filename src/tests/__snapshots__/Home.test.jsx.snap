@@ -2,7 +2,7 @@
 
 exports[`Home page > Home page matches snapshot 1`] = `
 <section
-  class="sc-iBdnpw koeieq"
+  class="sc-iBdnpw jfPBdp"
   data-testid="home-section"
 >
   <h1
@@ -19,7 +19,7 @@ exports[`Home page > Home page matches snapshot 1`] = `
      Ask For
   </h1>
   <a
-    class="sc-gLLuof cJPnMg"
+    class="sc-gLLuof bgONbp"
     href="/products"
   >
     Shop Collection

@@ -48,27 +48,32 @@ exports[`Product Card test > Product card renders correctly 1`] = `
     </p>
     <div
       class="sc-dmyCSP gUwTfa"
+      data-testid="product-quantity-selector"
     >
       <div
         class="sc-hLQSwg tApZJ"
       >
         <button
           class="sc-guDLey hYdscr"
+          data-testid="product-quantity__decrement-btn"
         >
           –
         </button>
         <input
+          data-testid="product-quantity__number-input"
           type="number"
           value="1"
         />
         <button
           class="sc-guDLey hYdscr"
+          data-testid="product-quantity__increment-btn"
         >
           +
         </button>
       </div>
       <button
         class="sc-guDLey hYdscr"
+        data-testid="product-quantity__add-to-cart-btn"
       >
         Add to Cart
       </button>

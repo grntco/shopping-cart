@@ -2,7 +2,7 @@
 
 exports[`Header > renders header element 1`] = `
 <header
-  class="sc-dmyCSP iQeVsA"
+  class="sc-dmyCSP eTsKeU"
   data-testid="header"
 >
   <nav

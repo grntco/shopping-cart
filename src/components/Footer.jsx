@@ -8,16 +8,25 @@ const Footer = () => {
     return (
         <StyledFooter data-testid='footer'>
             <PrimaryFooter>
-                <Logo className='footer-logo' />
+                <LogoContainer>
+                    <Logo footer={true} />
+                    <AttributionContainer>
+                        <a
+                            href='https://github.com/grntco'
+                            target='_blank'
+                            rel='noreferrer'
+                        >
+                            Made by grntco
+                            <Icon src={ghIcon} alt='github icon' />
+                        </a>
+                    </AttributionContainer>
+                </LogoContainer>
                 <FooterLinks>
                     <FooterLinkItem>
                         <FooterLink>Mens</FooterLink>
                     </FooterLinkItem>
                     <FooterLinkItem>
                         <FooterLink>Womens</FooterLink>
-                    </FooterLinkItem>
-                    <FooterLinkItem>
-                        <FooterLink>Shoes</FooterLink>
                     </FooterLinkItem>
                     <FooterLinkItem>
                         <FooterLink>Jewelry</FooterLink>
@@ -27,16 +36,6 @@ const Footer = () => {
                     </FooterLinkItem>
                 </FooterLinks>
             </PrimaryFooter>
-            <AttributionContainer>
-                <a
-                    href='https://github.com/grntco'
-                    target='_blank'
-                    rel='noreferrer'
-                >
-                    Made by grntco
-                    <Icon src={ghIcon} alt="github icon" />
-                </a>
-            </AttributionContainer>
         </StyledFooter>
     )
 }
@@ -52,6 +51,12 @@ const PrimaryFooter = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 48px 96px;
+`
+
+const LogoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 const AttributionContainer = styled.div`
