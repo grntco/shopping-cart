@@ -10,7 +10,8 @@ import getSubtotal from '../../../utils/getSubtotal'
 const CartPage = ({ cart, handleDeleteFromCart }) => {
     const cleanCart = groupProductsWithQuantities(cart)
     const subtotal = getSubtotal(cart)
-    const shipping = subtotal >= 50 ? 0 : 10
+    const freeShippingMin = 100;
+    const shipping = subtotal >= freeShippingMin ? 0 : 10
 
     if (cart.length === 0)
         return (
@@ -39,9 +40,9 @@ const CartPage = ({ cart, handleDeleteFromCart }) => {
             <CartPageColumn>
                 <h2>Summary</h2>
                 <p>
-                    {subtotal >= 50
+                    {subtotal >= freeShippingMin
                         ? 'Woohoo! You qualify for free shipping!'
-                        : `Spend ${formatToUSD(50 - subtotal)} more to qualify for free shipping.`}
+                        : `Spend ${formatToUSD(freeShippingMin - subtotal)} more to qualify for free shipping.`}
                 </p>
                 <PriceSummaryContainer>
                     <div>
@@ -50,7 +51,7 @@ const CartPage = ({ cart, handleDeleteFromCart }) => {
                     </div>
                     <div>
                         <p>
-                            {subtotal >= 50
+                            {subtotal >= freeShippingMin
                                 ? 'Free Shipping'
                                 : 'Flat Shipping Rate'}
                         </p>
