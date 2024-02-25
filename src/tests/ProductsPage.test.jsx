@@ -1,70 +1,80 @@
-// import ProductsPage from '../components/pages/products/ProductsPage'
-import { describe, it, expect, vi, importOriginal } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
-import App from '../components/App'
-// import userEvent from '@testing-library/user-event'
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { describe, it, expect, vi } from 'vitest'
+import { act } from 'react-dom/test-utils'
+import { render, screen } from '@testing-library/react'
+import useData from '../hooks/useData'
 import ProductsPage from '../components/pages/products/ProductsPage'
-import ProductsGrid from '../components/pages/products/ProductsGrid'
 import { BrowserRouter } from 'react-router-dom'
-import userEvent from '@testing-library/user-event'
-import useDataMock from '../hooks/useData' // Adjust the path as needed
 
-vi.mock('../hooks/useData.jsx', () => ({
+vi.mock('../hooks/useData', () => ({
     __esModule: true,
-    default: async (path) => {
-        // Mocked data
-        if (path === '/products') {
-            return Promise.resolve({
-                data: [
-                    {
-                        id: 1,
-                        title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-                        price: 109.95,
-                        description:
-                            'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-                        category: "men's clothing",
-                        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-                        rating: {
-                            rate: 3.9,
-                            count: 120,
-                        },
-                    },
-                ],
-                error: null,
-                loading: false,
-            })
-        } else if (path === '/products/categories') {
-            return Promise.resolve({
-                data: [
-                    'electronics',
-                    'jewelery',
-                    "men's clothing",
-                    "women's clothing",
-                ],
-                error: null,
-                loading: false,
-            })
-        } else {
-            throw new Error(`Unexpected path: ${path}`)
-        }
-    },
+    default: vi.fn(),
 }))
 
-describe('Products Filter Section Test', () => {
-    it('confirm data mocks properly', async () => {
-        const result = await useDataMock('/products/categories')
-        console.log(result)
-    })
+const mockProducts = [
+    {
+        id: 1,
+        title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+        price: 109.95,
+        description:
+            'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+        category: "men's clothing",
+        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+        rating: {
+            rate: 3.9,
+            count: 120,
+        },
+    },
+]
 
-    it('Products Page renders ProductsGrid', async () => {
-        render(<ProductsPage />, { wrapper: BrowserRouter })
-
-        await waitFor(() => {
-            expect(
-                screen.getByTestId('products-filter-section'),
-            ).toBeInTheDocument()
+describe('Products Page test', () => {
+    it('renders error message when data is null', async () => {
+        useData.mockImplementation(() => {
+            return { data: null, error: true, loading: false }
         })
 
-        // expect(screen.getByTestId('products-grid')).toBeInTheDocument()
+        act(() => {
+            render(<ProductsPage />)
+        })
+
+        expect(
+            screen.getByText('An error occurred. Please check back later.'),
+        ).toBeInTheDocument()
+    })
+
+    it('renders loading page when loading is true', async () => {
+        useData.mockImplementation(() => {
+            return { data: null, error: false, loading: true }
+        })
+
+        act(() => {
+            render(<ProductsPage />)
+        })
+
+        expect(screen.getByTestId('loading-page')).toBeInTheDocument()
+    })
+
+    it('renders ProductsGrid and ProdutsFilterSection when data is available and loading is false', async () => {
+        useData.mockImplementation(() => {
+            return { data: mockProducts, error: false, loading: false }
+        })
+
+        vi.mock('../components/pages/products/ProductsFilterSection', () => ({
+            default: ({ pageTitle }) => (
+                <section data-testid='mock-products-filter-section'>
+                    <h1>{pageTitle}</h1>
+                </section>
+            ),
+        }))
+
+        act(() => {
+            render(<ProductsPage />, { wrapper: BrowserRouter })
+        })
+
+        expect(
+            screen.getByTestId('mock-products-filter-section'),
+        ).toBeInTheDocument()
+        expect(screen.getByTestId('products-grid')).toBeInTheDocument()
     })
 })
