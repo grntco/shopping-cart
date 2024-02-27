@@ -45,6 +45,10 @@ const StyledSingleProductPage = styled.section`
     justify-content: center;
     padding: 48px 96px;
     max-width: 1200px;
+
+    @media (max-width: 740px) {
+        padding: 48px 24px;
+    }
 `
 
 const SingleProductContainer = styled.div`
