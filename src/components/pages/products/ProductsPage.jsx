@@ -5,6 +5,7 @@ import LoadingPage from '../loading/LoadingPage'
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import capitalize from '../../../utils/capitalize'
+import getSortFunc from '../../../utils/getSortFunc'
 
 const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
@@ -71,69 +72,9 @@ const ProductsPage = ({ handleAddToCart }) => {
 
     function handleSort(e) {
         const sortMethod = e.target.value
-        let compareFn
+        const sortFunc = getSortFunc(sortMethod)
 
-        switch (sortMethod) {
-            case 'title-ascending':
-                compareFn = titleAscending
-                break
-            case 'title-descending':
-                compareFn = titleDescending
-                break
-            case 'price-ascending':
-                compareFn = priceAscending
-                break
-            case 'price-descending':
-                compareFn = priceDescending
-                break
-            case 'rating-descending':
-                compareFn = ratingDescending
-                break
-            case 'id-ascending':
-                compareFn = idAscending
-                break
-            default:
-                compareFn = idAscending
-        }
-
-        function titleAscending(prev, next) {
-            const prevTitle = prev.title.toUpperCase()
-            const nextTitle = next.title.toUpperCase()
-
-            if (prevTitle < nextTitle) {
-                return -1
-            } else if (prevTitle > nextTitle) {
-                return 1
-            } else {
-                return 0
-            }
-        }
-        function titleDescending(prev, next) {
-            const prevTitle = prev.title.toUpperCase()
-            const nextTitle = next.title.toUpperCase()
-
-            if (prevTitle > nextTitle) {
-                return -1
-            } else if (prevTitle < nextTitle) {
-                return 1
-            } else {
-                return 0
-            }
-        }
-        function priceAscending(prev, next) {
-            return prev.price - next.price
-        }
-        function priceDescending(prev, next) {
-            return next.price - prev.price
-        }
-        function ratingDescending(prev, next) {
-            return next.rating.rate - prev.rating.rate
-        }
-        function idAscending(prev, next) {
-            return prev.id - next.id
-        }
-
-        setProducts((prevProducts) => [...prevProducts].sort(compareFn))
+        setProducts((prevProducts) => [...prevProducts].sort(sortFunc))
     }
 }
 
