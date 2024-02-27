@@ -10,7 +10,7 @@ import getSubtotal from '../../../utils/getSubtotal'
 const CartPage = ({ cart, handleDeleteFromCart }) => {
     const cleanCart = groupProductsWithQuantities(cart)
     const subtotal = getSubtotal(cart)
-    const freeShippingMin = 100;
+    const freeShippingMin = 100
     const shipping = subtotal >= freeShippingMin ? 0 : 10
 
     if (cart.length === 0)
@@ -85,12 +85,22 @@ const StyledCartPage = styled.section`
     grid-template-columns: 2fr 1fr;
     gap: 48px;
     padding: 48px 96px;
+
+    @media (max-width: 740px) {
+        padding: 48px 24px;
+        grid-template-columns: 1fr;
+    }
 `
 
 const CartPageColumn = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
+    @media (max-width: 740px) {
+        &:first-child {
+            order: 2;
+        }
+    }
 `
 
 const CartContainer = styled.ul`
