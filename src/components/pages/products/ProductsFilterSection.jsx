@@ -91,6 +91,10 @@ const StyledProductsFilterSection = styled.section`
     gap: 24px;
     background-color: var(--secondary-bg-color);
     border-bottom: 1px solid black;
+
+    @media (max-width: 600px) {
+        padding: 12px 16px;
+    }
 `
 
 const ProductsFiltersContainer = styled.div`
@@ -115,6 +119,20 @@ const ProductsFiltersContainer = styled.div`
     select {
         border: 1px solid grey;
         padding: 4px;
+    }
+
+    @media (max-width: 740px) {
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+
+        div {
+            width: 100%;
+        }
+
+        input, select {
+            width: 100%;
+        }
     }
 `
 
