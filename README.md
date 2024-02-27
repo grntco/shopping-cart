@@ -1,6 +1,7 @@
 # Shopping Cart
 
 **Status:** Complete.
+
 **Live Demo:** [https://shopping-cart-nine-jade.vercel.app/](https://shopping-cart-nine-jade.vercel.app/)
 
 This is a project to build [a fake e-commerce website](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart) using React for The Odin Project's React course.
