@@ -8,6 +8,11 @@ const StyledProductsGrid = styled.section`
     gap: 24px;
     /* max-width: 1400px; */
     padding: 48px 96px;
+
+    @media (max-width: 740px) {
+        padding: 12px 16px;
+        justify-items: center;
+    }
 `
 
 const ProductsGrid = ({ products, handleAddToCart }) => {
