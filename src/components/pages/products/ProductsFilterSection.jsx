@@ -32,7 +32,6 @@ const ProductsFilterSection = ({
 
     return (
         <StyledProductsFilterSection data-testid='products-filter-section'>
-            {/* maybe do something with changing the title based on category change */}
             <h1>{pageTitle}</h1>
             <ProductsFiltersContainer>
                 <div>

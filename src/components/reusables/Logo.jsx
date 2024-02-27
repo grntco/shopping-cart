@@ -5,22 +5,6 @@ import cartIcon from '../../assets/icons/shopping-cart.svg'
 import cartIconWhite from '../../assets/icons/shopping-cart-white.svg'
 import PropTypes from 'prop-types'
 
-const StyledLogo = styled(Link)`
-    display: flex;
-    align-items: center;
-    gap: 4px;
-
-    img {
-        height: 1.6rem;
-    }
-
-    p {
-        font-size: 1.6rem;
-        font-weight: 700;
-        letter-spacing: 0.025rem;
-    }
-`
-
 const Logo = ({ footer }) => {
     return (
         <StyledLogo to='/'>
@@ -37,6 +21,22 @@ const Logo = ({ footer }) => {
         </StyledLogo>
     )
 }
+
+const StyledLogo = styled(Link)`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    img {
+        height: 1.6rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 0.025rem;
+    }
+`
 
 Logo.propTypes = {
     footer: PropTypes.bool,

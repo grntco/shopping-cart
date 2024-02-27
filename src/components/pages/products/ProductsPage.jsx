@@ -10,8 +10,6 @@ const ProductsPage = ({ handleAddToCart }) => {
     const { data, error, loading } = useData('/products')
     const [products, setProducts] = useState([])
     const [pageTitle, setPageTitle] = useState('All Products')
-    // const [selectedCategory, setSelectedCategory] = useState('all')
-    // const [selectedSort, setSelectedSort] = useState('id-ascending')
 
     useEffect(() => {
         if (data && data.length > 0) {

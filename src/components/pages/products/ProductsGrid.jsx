@@ -22,7 +22,6 @@ const StyledProductsGrid = styled.section`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
     gap: 24px;
-    /* max-width: 1400px; */
     padding: 48px 96px;
 
     @media (max-width: 740px) {

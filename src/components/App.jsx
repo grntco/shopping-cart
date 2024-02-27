@@ -1,4 +1,3 @@
-// import styled from 'styled-components'
 import Header from './Header'
 import PageContent from './PageContent'
 import Footer from './Footer'
@@ -20,16 +19,12 @@ const App = () => {
     )
 
     function handleAddToCart(newProduct, quantity) {
-        // const numAlreadyInCart = cart.filter(
-        //     (product) => (product.title = newProduct.title),
-        // ).length
-
         if (quantity > 0) {
-            let productsQueue = []
+            let productsToAdd = []
             for (let i = quantity; i > 0; i--) {
-                productsQueue.push(newProduct)
+                productsToAdd.push(newProduct)
             }
-            setCart([...cart, ...productsQueue])
+            setCart([...cart, ...productsToAdd])
         }
     }
 

@@ -1,5 +1,14 @@
 import { styled, keyframes } from 'styled-components'
 
+const LoadingPage = () => {
+    return (
+        <StyledLoadingPage data-testid='loading-page'>
+            <p>Loading...</p>
+            <Spinner />
+        </StyledLoadingPage>
+    )
+}
+
 const spin = keyframes`
     0% {
         transform: rotate(0deg);
@@ -33,14 +42,5 @@ const StyledLoadingPage = styled.section`
         color: var(--accent-color);
     }
 `
-
-const LoadingPage = () => {
-    return (
-        <StyledLoadingPage data-testid='loading-page'>
-            <p>Loading...</p>
-            <Spinner />
-        </StyledLoadingPage>
-    )
-}
 
 export default LoadingPage

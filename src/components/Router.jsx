@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import NotFound from './NotFound'
-// import CartPage from './pages/cart/CartPage'
 
 const Router = () => {
     const router = createBrowserRouter([
