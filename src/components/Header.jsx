@@ -49,6 +49,14 @@ const Nav = styled.nav`
         gap: 48px;
         list-style: none;
     }
+
+    @media (max-width: 600px) {
+        padding: 12px 24px 12px 12px;
+
+        ul {
+            gap: 12px;
+        }
+    }
 `
 
 const NavLink = styled(Link)`

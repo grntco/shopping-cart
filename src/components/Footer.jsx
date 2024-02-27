@@ -45,18 +45,33 @@ const StyledFooter = styled.footer`
     flex-direction: column;
     color: var(--tertiary-txt-color);
     background-color: var(--tertiary-bg-color);
+
+    @media (max-width: 600px) {
+        flex-direction: row;
+        justify-content: center;
+    }
 `
 
 const PrimaryFooter = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 48px 96px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        padding: 24px 12px;
+        gap: 24px;
+    }
 `
 
 const LogoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 600px) {
+        gap: 8px;
+    }
 `
 
 const AttributionContainer = styled.div`
@@ -76,6 +91,10 @@ const FooterLinks = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 4px;
+
+    @media (max-width: 600px) {
+        align-items: center;
+    }
 `
 
 const FooterLinkItem = styled.li`
